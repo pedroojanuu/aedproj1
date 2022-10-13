@@ -9,12 +9,12 @@
 
 class Turma {
 public:
-    Turma(const std::string &code, const UC &uc, UC uc1);
+    Turma(const std::string &code, const UC &uc);
 private:
     std::string code_;
     UC uc_;
     static int capacity_; // qual o valor máximo??
-    std::vector<Student> students_;
+    //std::vector<Student> students_;
 };
 
 #endif //UNTITLED_TURMA_H

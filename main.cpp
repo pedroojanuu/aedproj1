@@ -11,8 +11,6 @@ using namespace std;
 
 void readData() {
     ifstream in1("classes.csv");
-    if (!in1.is_open()) throw runtime_error("Could not open file.");
-
     ifstream in2("classes_per_uc.csv");
     ifstream in3("students_classes.csv");
 
@@ -39,7 +37,7 @@ void readData() {
         ss >> DurationFloat;
 
         classes.push_back(Class(ClassCode, UcCode, Weekday, StartHourFloat, DurationFloat, Type));
-    }
+    }*/
 }
 
 int main() {

@@ -11,7 +11,7 @@ public:
 private:
     int studentCode_;
     std::string studentName_;
-    vector<Class> schedule_;
+    std::vector<Class> schedule_;
 };
 
 

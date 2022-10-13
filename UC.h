@@ -9,10 +9,11 @@
 
 class UC {
 public:
+    UC();
     UC(const std::string& code);
 private:
     std::string code_;
-    std::vector<Student> students_;
+    //std::vector<Student> students_;
 };
 
 
