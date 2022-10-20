@@ -2,16 +2,19 @@
 #define UNTITLED_STUDENT_H
 
 #include <string>
-#include "Class.h"
+#include "UCTurma.h"
+
+using namespace std;
 
 class Student {
 public:
-    Student(int code, const std::string& name);
+    Student();
+    Student(int code, const string& name);
 
 private:
     int studentCode_;
-    std::string studentName_;
-    std::vector<Class> schedule_;
+    string studentName_;
+    vector<UCTurma> turmas;
 };
 
 

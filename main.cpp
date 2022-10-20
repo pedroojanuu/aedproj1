@@ -1,11 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
-
-#include "Student.h"
-#include "UC.h"
-#include "Turma.h"
-#include "Class.h"
 
 using namespace std;
 
@@ -37,7 +30,7 @@ void readData() {
         ss >> DurationFloat;
 
         classes.push_back(Class(ClassCode, UcCode, Weekday, StartHourFloat, DurationFloat, Type));
-    }*/
+    }
 }
 
 int main() {
