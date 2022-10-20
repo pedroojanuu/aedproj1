@@ -10,7 +10,9 @@ class Student {
 public:
     Student();
     Student(int code, const string& name);
-
+    int getCode() const;
+    bool operator < (const Student& s);
+    void addTurma(const UCTurma & turma);
 private:
     int studentCode_;
     string studentName_;

@@ -3,4 +3,4 @@ project(AED_Proj1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(AED_Proj1 main.cpp UCTurma.cpp UCTurma.h Slot.cpp Slot.h Pedido.cpp Pedido.h)
+add_executable(AED_Proj1 main.cpp UCTurma.cpp UCTurma.h Slot.cpp Slot.h Pedido.cpp Pedido.h GestaoHor.cpp GestaoHor.h)
