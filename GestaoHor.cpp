@@ -6,6 +6,11 @@
 
 using namespace std;
 
+GestaoHor::GestaoHor() {
+
+}
+
+/*
 void readStudents() {
     ifstream in1("classes.csv");
     ifstream in2("classes_per_uc.csv");
@@ -34,8 +39,15 @@ void readStudents() {
 
         classes.push_back(Class(ClassCode, UcCode, Weekday, StartHourFloat, DurationFloat, Type));
     }
+}*/
+
+void GestaoHor::print() {
+    for (int i = 0; i < aulas.size(); i++) {
+        aulas[i].print();
+    }
 }
 
+//leitura de classes.csv
 void GestaoHor::readUCTurma() {
     ifstream in("classes.csv");
 
@@ -51,26 +63,28 @@ void GestaoHor::readUCTurma() {
         getline(iss, ucCode, ',');
         getline(iss, weekday, ',');
         getline(iss, startHour, ',');
-        istringstream ss(startHour);
-        ss >> startHourFloat;
+        istringstream sh(startHour);
+        sh >> startHourFloat;
         getline(iss, duration, ',');
-        ss.str(duration);
-        ss >> durationFloat;
+        istringstream du(duration);
+        du >> durationFloat;
+        getline(iss, type);
         Slot slot = Slot(weekday, startHourFloat, durationFloat, type);
 
-        if (aulas.back().getUC() != ucCode || aulas.empty()) {
+        if (aulas.empty() || aulas.back().getUC() != ucCode) {
             UCTurma ucTurma = UCTurma(ucCode, classCode);
             ucTurma.addSlot(slot);
             aulas.push_back(ucTurma);
         } else {
-            int i;
-            for (i = aulas.size() - 1; aulas.at(i).getUC() == ucCode || i != -1; i--) {
+            int i = aulas.size() - 1;
+            while (i != -1 && aulas.at(i).getUC() == ucCode) {
                 if (aulas.at(i).getTurma() == classCode) {
                     aulas.at(i).addSlot(slot);
                     break;
                 }
+                i--;
             }
-            if (aulas.at(i).getUC() != ucCode || i == -1) {
+            if (i == -1 || aulas.at(i).getUC() != ucCode) {
                 UCTurma ucTurma = UCTurma(ucCode, classCode);
                 ucTurma.addSlot(slot);
                 aulas.push_back(ucTurma);

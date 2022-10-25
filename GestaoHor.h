@@ -14,6 +14,7 @@ public:
     void readUC();
     void readStudents();
     void readUCTurma();
+    void print();
 private:
     set<Student> estudantes;
     vector<UCTurma> aulas;

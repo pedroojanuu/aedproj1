@@ -8,6 +8,7 @@ using namespace std;
 class Slot {
 public:
     Slot(const string& dia, float horaInicio, float duracao, const string& tipo);
+    void print() const;
 private:
     string dia_, tipo_;
     float horaInicio_, duracao_;

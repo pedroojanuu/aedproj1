@@ -13,7 +13,7 @@ public:
     string getUC() const;
     string getTurma() const;
     void addSlot (const Slot& slot);
-    bool operator <
+    void print() const;
 private:
     string codUC_, codTurma_;
     vector<Slot> horarioUCTurma;
