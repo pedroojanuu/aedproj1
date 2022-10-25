@@ -55,29 +55,35 @@ build CMakeFiles/AED_Proj1.dir/main.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/U
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir
   OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir
 
-build CMakeFiles/AED_Proj1.dir/UCTurma.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/UCTurma.cpp || cmake_object_order_depends_target_AED_Proj1
-  DEP_FILE = CMakeFiles\AED_Proj1.dir\UCTurma.cpp.obj.d
+build CMakeFiles/AED_Proj1.dir/Classes/UCTurma.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Classes/UCTurma.cpp || cmake_object_order_depends_target_AED_Proj1
+  DEP_FILE = CMakeFiles\AED_Proj1.dir\Classes\UCTurma.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir
-  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir\Classes
 
-build CMakeFiles/AED_Proj1.dir/Slot.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Slot.cpp || cmake_object_order_depends_target_AED_Proj1
-  DEP_FILE = CMakeFiles\AED_Proj1.dir\Slot.cpp.obj.d
+build CMakeFiles/AED_Proj1.dir/Classes/Slot.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Classes/Slot.cpp || cmake_object_order_depends_target_AED_Proj1
+  DEP_FILE = CMakeFiles\AED_Proj1.dir\Classes\Slot.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir
-  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir\Classes
 
-build CMakeFiles/AED_Proj1.dir/Pedido.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Pedido.cpp || cmake_object_order_depends_target_AED_Proj1
-  DEP_FILE = CMakeFiles\AED_Proj1.dir\Pedido.cpp.obj.d
+build CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Classes/Pedido.cpp || cmake_object_order_depends_target_AED_Proj1
+  DEP_FILE = CMakeFiles\AED_Proj1.dir\Classes\Pedido.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir
-  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir\Classes
 
-build CMakeFiles/AED_Proj1.dir/GestaoHor.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/GestaoHor.cpp || cmake_object_order_depends_target_AED_Proj1
-  DEP_FILE = CMakeFiles\AED_Proj1.dir\GestaoHor.cpp.obj.d
+build CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Classes/GestaoHor.cpp || cmake_object_order_depends_target_AED_Proj1
+  DEP_FILE = CMakeFiles\AED_Proj1.dir\Classes\GestaoHor.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir
-  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir\Classes
+
+build CMakeFiles/AED_Proj1.dir/Classes/Student.cpp.obj: CXX_COMPILER__AED_Proj1_Debug C$:/Users/Pedro/CLionProjects/AED_Proj1/Classes/Student.cpp || cmake_object_order_depends_target_AED_Proj1
+  DEP_FILE = CMakeFiles\AED_Proj1.dir\Classes\Student.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\AED_Proj1.dir
+  OBJECT_FILE_DIR = CMakeFiles\AED_Proj1.dir\Classes
 
 
 # =============================================================================
@@ -87,7 +93,7 @@ build CMakeFiles/AED_Proj1.dir/GestaoHor.cpp.obj: CXX_COMPILER__AED_Proj1_Debug 
 #############################################
 # Link the executable AED_Proj1.exe
 
-build AED_Proj1.exe: CXX_EXECUTABLE_LINKER__AED_Proj1_Debug CMakeFiles/AED_Proj1.dir/main.cpp.obj CMakeFiles/AED_Proj1.dir/UCTurma.cpp.obj CMakeFiles/AED_Proj1.dir/Slot.cpp.obj CMakeFiles/AED_Proj1.dir/Pedido.cpp.obj CMakeFiles/AED_Proj1.dir/GestaoHor.cpp.obj
+build AED_Proj1.exe: CXX_EXECUTABLE_LINKER__AED_Proj1_Debug CMakeFiles/AED_Proj1.dir/main.cpp.obj CMakeFiles/AED_Proj1.dir/Classes/UCTurma.cpp.obj CMakeFiles/AED_Proj1.dir/Classes/Slot.cpp.obj CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.obj CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj CMakeFiles/AED_Proj1.dir/Classes/Student.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AED_Proj1.dir

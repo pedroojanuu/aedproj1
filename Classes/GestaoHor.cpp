@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include "GestaoHor.h"
 
@@ -10,44 +11,16 @@ GestaoHor::GestaoHor() {
 
 }
 
-/*
-void readStudents() {
-    ifstream in1("classes.csv");
-    ifstream in2("classes_per_uc.csv");
-    ifstream in3("students_classes.csv");
-
-    vector<Student> students;
-    vector<UC> ucs;
-    vector<Turma> turmas;
-    vector<Class> classes;
-
-    string line;
-    getline(in1, line);
-
-    while (getline(in1, line)) {
-
-        istringstream iss(line);
-        getline(iss, ClassCode, ',');
-        getline(iss, UcCode, ',');
-        getline(iss, Weekday, ',');
-        getline(iss, StartHour, ',');
-        istringstream ss (StartHour);
-        ss >> StartHourFloat;
-        getline(iss, Duration, ',');
-        ss.str(Duration);
-        ss >> DurationFloat;
-
-        classes.push_back(Class(ClassCode, UcCode, Weekday, StartHourFloat, DurationFloat, Type));
-    }
-}*/
-
-void GestaoHor::print() {
-    for (int i = 0; i < aulas.size(); i++) {
+void GestaoHor::print() const {
+    /*for (int i = 0; i < aulas.size(); i++) {
         aulas[i].print();
+    }*/
+    for (int i = 0; i < estudantes.size(); i++) {
+        estudantes[i].print();
     }
 }
 
-//leitura de classes.csv
+//leitura de classes.csv/classes_per_uc.csv
 void GestaoHor::readUCTurma() {
     ifstream in("classes.csv");
 
@@ -91,4 +64,33 @@ void GestaoHor::readUCTurma() {
             }
         }
     }
+}
+
+// leitura de students_classes.csv
+void GestaoHor::readStudents() {
+    ifstream in("students_classes.csv");
+    string line;
+    getline(in, line);
+
+    while (getline(in, line)) {
+        string StudentCode, StudentName, UcCode, ClassCode;
+        int StudentCodeInt;
+        istringstream iss(line);
+        getline(iss, StudentCode, ',');
+        getline(iss, StudentName, ',');
+        getline(iss, UcCode, ',');
+        getline(iss, ClassCode, ',');
+        istringstream sc(StudentCode);
+        sc >> StudentCodeInt;
+        UCTurma ucTurma = UCTurma(UcCode, ClassCode);
+
+        if (estudantes.empty() || estudantes.back().getCode() != StudentCodeInt) {
+            Student student = Student(StudentCodeInt, StudentName);
+            student.addTurma(ucTurma);
+            estudantes.push_back(student);
+        } else {
+            estudantes.back().addTurma(ucTurma);
+        }
+    }
+    sort(estudantes.begin(), estudantes.end()); // podemos usar o sort do c++ ou devemos implementar nós?
 }

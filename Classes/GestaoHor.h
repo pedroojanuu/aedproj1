@@ -11,12 +11,12 @@ using namespace std;
 class GestaoHor {
 public:
     GestaoHor();
-    void readUC();
+    // void readUC();
     void readStudents();
     void readUCTurma();
-    void print();
+    void print() const;
 private:
-    set<Student> estudantes;
+    vector<Student> estudantes;
     vector<UCTurma> aulas;
     vector<UCTurma> horario;
     queue<Pedido> pedidos;
