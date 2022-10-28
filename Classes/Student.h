@@ -20,6 +20,8 @@ public:
     void addTurma(const UCTurma& turma); /*!< Adds a class (push back) to the student's classes vector.\n Complexity: O(1). */
     void print() const; /*!< Prints the student's code, name and the classes they're in, using the class UCTurma's \b print() method.
  * \n Complexity: O(n), with \a n being the size of the private member \a turmas (the number of classes the student is in). */
+    Student& operator=(const Student& student);
+    void removeTurma(const UCTurma& turma);
 private:
     int code_; /*!< \b Integer for the student's code. */
     string name_; /*!< \b String for the student's code. */
