@@ -32,3 +32,21 @@ void Student::print() const {
         turma.print();
     }
 }
+
+Student& Student::operator=(const Student& student) {
+    name_ = student.name_;
+    code_ = student.code_;
+    for(UCTurma turma : student.turmas) {
+        turmas.push_back(turma);
+    }
+    return *this;
+}
+
+void Student::removeTurma(const UCTurma &turma) {
+    vector<UCTurma>::iterator itr;
+    for (itr = turmas.begin(); itr != turmas.end(); itr++)
+        if (itr->getTurma() == turma.getTurma() && itr->getUC() == turma.getUC()) {
+            break;
+        }
+    turmas.erase(itr);
+}

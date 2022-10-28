@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "AED_Proj1.exe"
-		},
-		{
-			"path" : "AED_Proj1.pdb"
+			"path" : "AED_Proj1"
 		}
 	],
 	"backtrace" : 1,
@@ -76,16 +73,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "AED_Proj1",
-	"nameOnDisk" : "AED_Proj1.exe",
+	"nameOnDisk" : "AED_Proj1",
 	"paths" : 
 	{
 		"build" : ".",

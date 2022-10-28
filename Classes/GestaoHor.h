@@ -15,6 +15,7 @@ public:
     void readStudents();
     void readUCTurma();
     void print() const;
+    void removeTurmaStudent(const Student& student, const UCTurma& turma);
 private:
     set<Student> estudantes;
     vector<UCTurma> aulas;

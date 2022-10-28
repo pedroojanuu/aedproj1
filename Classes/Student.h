@@ -19,6 +19,8 @@ public:
  * only compares  */
     void addTurma(const UCTurma& turma);
     void print() const;
+    Student& operator=(const Student& student);
+    void removeTurma(const UCTurma& turma);
 private:
     int code_;
     string name_;

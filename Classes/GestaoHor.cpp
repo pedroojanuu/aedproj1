@@ -96,3 +96,9 @@ void GestaoHor::readStudents() {
     }
     estudantes = set<Student>(temp.begin(), temp.end());
 }
+
+void GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma) {
+    auto pos = estudantes.find(student);
+    Student tmp = *pos;
+    tmp.removeTurma(turma);
+}

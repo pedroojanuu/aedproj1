@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="AED_Proj1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\docs\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Doxygen">
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 Doxygen"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AED_Proj1">
+				<Option output="/home/joao/sandbox/repos/proj/cmake-build-debug/AED_Proj1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 AED_Proj1"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AED_Proj1/fast">
+				<Option output="/home/joao/sandbox/repos/proj/cmake-build-debug/AED_Proj1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 AED_Proj1/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/joao/sandbox/repos/proj/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/joao/sandbox/repos/proj/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/GestaoHor.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/GestaoHor.h">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Pedido.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Pedido.h">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Slot.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Slot.h">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Student.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/Student.h">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/UCTurma.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/Classes/UCTurma.h">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/main.cpp">
+			<Option target="AED_Proj1"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/joao/sandbox/repos/proj/docs/Doxyfile">
+			<Option virtualFolder="CMake Files\docs\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
