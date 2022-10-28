@@ -19,4 +19,5 @@ private:
     vector<Slot> horarioUCTurma;
 };
 
+
 #endif //AED_PROJ1_UCTURMA_H
