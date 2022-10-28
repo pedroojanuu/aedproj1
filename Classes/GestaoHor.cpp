@@ -12,9 +12,9 @@ GestaoHor::GestaoHor() {
 }
 
 void GestaoHor::print() const {
-    /*for (int i = 0; i < aulas.size(); i++) {
+    for (int i = 0; i < aulas.size(); i++) {
         aulas[i].print();
-    }*/
+    }
     for (auto it = estudantes.begin(); it != estudantes.end(); it++) {
         it->print();
     }

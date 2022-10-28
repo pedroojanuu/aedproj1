@@ -11,7 +11,6 @@ using namespace std;
 class GestaoHor {
 public:
     GestaoHor();
-    // void readUC();
     void readStudents();
     void readUCTurma();
     void print() const;
