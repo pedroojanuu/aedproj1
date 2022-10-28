@@ -13,6 +13,10 @@ int Student::getCode() const {
     return code_;
 }
 
+string Student::getName() const {
+    return name_;
+}
+
 bool Student::operator<(const Student& s) const {
     return (code_ < s.getCode());
 }

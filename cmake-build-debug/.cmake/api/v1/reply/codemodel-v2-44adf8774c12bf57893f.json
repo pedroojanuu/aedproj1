@@ -15,7 +15,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -30,7 +31,8 @@
 					"name" : "AED_Proj1",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -39,8 +41,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "AED_Proj1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AED_Proj1-Debug-0d9b55eb1944801a5300.json",
+					"jsonFile" : "target-AED_Proj1-Debug-01745608a288a39c193d.json",
 					"name" : "AED_Proj1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Doxygen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Doxygen-Debug-3890c022b400da953b64.json",
+					"name" : "Doxygen",
 					"projectIndex" : 0
 				}
 			]

@@ -15,8 +15,8 @@ void GestaoHor::print() const {
     /*for (int i = 0; i < aulas.size(); i++) {
         aulas[i].print();
     }*/
-    for (int i = 0; i < estudantes.size(); i++) {
-        estudantes[i].print();
+    for (auto it = estudantes.begin(); it != estudantes.end(); it++) {
+        it->print();
     }
 }
 
@@ -72,6 +72,8 @@ void GestaoHor::readStudents() {
     string line;
     getline(in, line);
 
+    vector<Student> temp;
+
     while (getline(in, line)) {
         string StudentCode, StudentName, UcCode, ClassCode;
         int StudentCodeInt;
@@ -84,13 +86,13 @@ void GestaoHor::readStudents() {
         sc >> StudentCodeInt;
         UCTurma ucTurma = UCTurma(UcCode, ClassCode);
 
-        if (estudantes.empty() || estudantes.back().getCode() != StudentCodeInt) {
+        if (temp.empty() || temp.back().getCode() != StudentCodeInt) {
             Student student = Student(StudentCodeInt, StudentName);
             student.addTurma(ucTurma);
-            estudantes.push_back(student);
+            temp.push_back(student);
         } else {
-            estudantes.back().addTurma(ucTurma);
+            temp.back().addTurma(ucTurma);
         }
     }
-    sort(estudantes.begin(), estudantes.end()); // podemos usar o sort do c++ ou devemos implementar nós?
+    estudantes = set<Student>(temp.begin(), temp.end());
 }

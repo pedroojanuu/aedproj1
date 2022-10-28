@@ -16,7 +16,7 @@ public:
     void readUCTurma();
     void print() const;
 private:
-    vector<Student> estudantes;
+    set<Student> estudantes;
     vector<UCTurma> aulas;
     vector<UCTurma> horario;
     queue<Pedido> pedidos;

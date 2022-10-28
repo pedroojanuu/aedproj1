@@ -7,11 +7,16 @@
 
 using namespace std;
 
+/**
+ * @class Student A class for Student, containing their name, unique code and a vector with the classes they're in.
+ */
 class Student {
 public:
-    Student(int code, const string& name);
-    int getCode() const;
-    bool operator<(const Student& s) const ;
+    Student(int code, const string& name); /*!< A constructor that receives an \b int code and a \b string name. */
+    int getCode() const; /*!< Returns the student's code. */
+    string getName() const; /*!< Returns the student's name. */
+    bool operator<(const Student& s) const; /*!< Overload of operator < (less than). Since each student's code is unique, it
+ * only compares  */
     void addTurma(const UCTurma& turma);
     void print() const;
 private:
