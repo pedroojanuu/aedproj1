@@ -17,7 +17,7 @@ public:
 private:
     string dia_; /*!< A \b string indicating the day of the week of the lesson.*/
     string tipo_; /*!< A \b string indicating the kind of the lesson.*/
-    float horaInicio_; /*!< \b Float indicating when does the lesson begin (the starting hour). */
+    float horaInicio_; /*!< \b Float indicating when the lesson begins (the starting hour). */
     float duracao_; /*!< \b Float indicating how long (in hours) the lesson lasts. */
 };
 

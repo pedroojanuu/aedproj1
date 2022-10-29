@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/AED_Proj1.dir/main.cpp.o CMakeFiles/AED_Proj1.dir/Classes/UCTurma.cpp.o CMakeFiles/AED_Proj1.dir/Classes/Slot.cpp.o CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.o CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.o CMakeFiles/AED_Proj1.dir/Classes/Student.cpp.o -o AED_Proj1 

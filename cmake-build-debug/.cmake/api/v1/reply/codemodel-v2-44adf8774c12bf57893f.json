@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.23"
@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "AED_Proj1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AED_Proj1-Debug-e79c75342f9880cc7ba9.json",
+					"jsonFile" : "target-AED_Proj1-Debug-01745608a288a39c193d.json",
 					"name" : "AED_Proj1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Doxygen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Doxygen-Debug-25fa7be93c91bd28e623.json",
+					"jsonFile" : "target-Doxygen-Debug-3890c022b400da953b64.json",
 					"name" : "Doxygen",
 					"projectIndex" : 0
 				}
@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/joao/sandbox/repos/proj/cmake-build-debug",
-		"source" : "/home/joao/sandbox/repos/proj"
+		"build" : "C:/Users/Pedro/CLionProjects/AED_Proj1/cmake-build-debug",
+		"source" : "C:/Users/Pedro/CLionProjects/AED_Proj1"
 	},
 	"version" : 
 	{

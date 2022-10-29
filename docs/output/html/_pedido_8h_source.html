@@ -21,9 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto 1 AED<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Projeto 1 AED<span id="projectnumber">&#160;2022/23</span>
    </div>
-   <div id="projectbrief">Unidade Curricular AED</div>
+   <div id="projectbrief">Faculdade de Engenharia da Universidade do Porto, Faculdade de Ciências da Universidade do Porto: Licenciatura em Engenharia Informática e Computação: Unidade Curricular Algoritmos e Estruturas de Dados (2ºA 1ºS)</div>
   </td>
  </tr>
  </tbody>
@@ -84,18 +84,26 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_pedido.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pedido.html">Pedido</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_pedido.html">Pedido</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; pedinte, <span class="keyword">const</span> vector&lt;UCTurma&gt;&amp; a_remover, <span class="keyword">const</span> vector&lt;UCTurma&gt;&amp; a_adicionar);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_student.html">Student</a> pedinte_;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    vector&lt;UCTurma&gt; a_remover_;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    vector&lt;UCTurma&gt; a_adicionar_;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif </span><span class="comment">//AED_PROJ1_PEDIDO_H</span></div>
-<div class="ttc" id="aclass_pedido_html"><div class="ttname"><a href="class_pedido.html">Pedido</a></div><div class="ttdef"><b>Definition:</b> Pedido.h:8</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_pedido.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_pedido.html">Pedido</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_pedido.html#a04dde8d66088f874cb5c9485674e9913">   14</a></span>    <a class="code hl_function" href="class_pedido.html#a04dde8d66088f874cb5c9485674e9913">Pedido</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; pedinte, <span class="keyword">const</span> vector&lt;UCTurma&gt;&amp; turmas, <span class="keywordtype">bool</span> joining); </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_pedido.html#a9175afa4a77a5e705c6d31c5fbce0e6e">   17</a></span>    <a class="code hl_function" href="class_pedido.html#a9175afa4a77a5e705c6d31c5fbce0e6e">Pedido</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; pedinte, <span class="keyword">const</span> vector&lt;UCTurma&gt;&amp; a_remover, <span class="keyword">const</span> vector&lt;UCTurma&gt;&amp; a_adicionar); </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_pedido.html#ac102c68b33857f401d660a248361d94c">   20</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_pedido.html#ac102c68b33857f401d660a248361d94c">processar_pedido</a>(); </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_pedido.html#ac8a92a5b2c4623b7e9354c202c550aa0">   23</a></span>    <a class="code hl_class" href="class_student.html">Student</a> <a class="code hl_variable" href="class_pedido.html#ac8a92a5b2c4623b7e9354c202c550aa0">pedinte_</a>; </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_pedido.html#a91b67a6e1daa7afe95f98854ebc20b70">   24</a></span>    vector&lt;UCTurma&gt; <a class="code hl_variable" href="class_pedido.html#a91b67a6e1daa7afe95f98854ebc20b70">a_remover_</a>; </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_pedido.html#a82687bd1dd787cf68fe57c0e01d35425">   25</a></span>    vector&lt;UCTurma&gt; <a class="code hl_variable" href="class_pedido.html#a82687bd1dd787cf68fe57c0e01d35425">a_adicionar_</a>; </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif </span><span class="comment">//AED_PROJ1_PEDIDO_H</span></div>
+<div class="ttc" id="aclass_pedido_html"><div class="ttname"><a href="class_pedido.html">Pedido</a></div><div class="ttdef"><b>Definition:</b> Pedido.h:12</div></div>
+<div class="ttc" id="aclass_pedido_html_a04dde8d66088f874cb5c9485674e9913"><div class="ttname"><a href="class_pedido.html#a04dde8d66088f874cb5c9485674e9913">Pedido::Pedido</a></div><div class="ttdeci">Pedido(const Student &amp;pedinte, const vector&lt; UCTurma &gt; &amp;turmas, bool joining)</div></div>
+<div class="ttc" id="aclass_pedido_html_a82687bd1dd787cf68fe57c0e01d35425"><div class="ttname"><a href="class_pedido.html#a82687bd1dd787cf68fe57c0e01d35425">Pedido::a_adicionar_</a></div><div class="ttdeci">vector&lt; UCTurma &gt; a_adicionar_</div><div class="ttdef"><b>Definition:</b> Pedido.h:25</div></div>
+<div class="ttc" id="aclass_pedido_html_a9175afa4a77a5e705c6d31c5fbce0e6e"><div class="ttname"><a href="class_pedido.html#a9175afa4a77a5e705c6d31c5fbce0e6e">Pedido::Pedido</a></div><div class="ttdeci">Pedido(const Student &amp;pedinte, const vector&lt; UCTurma &gt; &amp;a_remover, const vector&lt; UCTurma &gt; &amp;a_adicionar)</div></div>
+<div class="ttc" id="aclass_pedido_html_a91b67a6e1daa7afe95f98854ebc20b70"><div class="ttname"><a href="class_pedido.html#a91b67a6e1daa7afe95f98854ebc20b70">Pedido::a_remover_</a></div><div class="ttdeci">vector&lt; UCTurma &gt; a_remover_</div><div class="ttdef"><b>Definition:</b> Pedido.h:24</div></div>
+<div class="ttc" id="aclass_pedido_html_ac102c68b33857f401d660a248361d94c"><div class="ttname"><a href="class_pedido.html#ac102c68b33857f401d660a248361d94c">Pedido::processar_pedido</a></div><div class="ttdeci">bool processar_pedido()</div></div>
+<div class="ttc" id="aclass_pedido_html_ac8a92a5b2c4623b7e9354c202c550aa0"><div class="ttname"><a href="class_pedido.html#ac8a92a5b2c4623b7e9354c202c550aa0">Pedido::pedinte_</a></div><div class="ttdeci">Student pedinte_</div><div class="ttdef"><b>Definition:</b> Pedido.h:23</div></div>
 <div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
