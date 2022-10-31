@@ -19,13 +19,37 @@ void UCTurma::addSlot(const Slot &slot) {
 }
 
 void UCTurma::print() const {
-    cout << codTurma_ << ',' << codUC_ << endl;
+    cout << codTurma_ << ',' << codUC_ << ',' << size << endl;
     for (int i = 0; i < horarioUCTurma.size(); i++) {
         horarioUCTurma[i].print();
     }
 }
 
 bool UCTurma::operator<(const UCTurma &turma) const {
-    if (codUC_ == turma.codUC_) return codTurma_ < turma.codTurma_;
+    if (codUC_ == turma.codUC_) {
+        if (size == turma.size) {
+            return codTurma_ < turma.codTurma_;
+        }
+        return size < turma.size;
+    }
     return codUC_ < turma.codUC_;
+}
+
+void UCTurma::incrementSize() {
+    size++;
+}
+
+void UCTurma::decrementSize() {
+    size--;
+}
+
+int UCTurma::getSize() const{
+    return size;
+}
+
+UCTurma& UCTurma::operator=(const UCTurma &turma) {
+    codUC_ = turma.codUC_;
+    codTurma_ = turma.codTurma_;
+    size = turma.size;
+    return *this;
 }

@@ -94,12 +94,50 @@ void GestaoHor::readStudents() {
         } else {
             temp.back().addTurma(ucTurma);
         }
+        auto pos = aulas.find(ucTurma);
+        UCTurma sub = *pos;
+        sub.incrementSize();
+        aulas.erase(pos);
+        aulas.insert(sub);
     }
     estudantes = set<Student>(temp.begin(), temp.end());
+    //copy(temp.begin(),temp.end(),inserter(estudantes,estudantes.end()));
 }
 
-void GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma) {
-    auto pos = estudantes.find(student);
-    Student tmp = *pos;
+bool GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma) {
+    auto posTurma = aulas.find(turma);
+    if (posTurma == aulas.end()) {
+        return false;
+    }
+    UCTurma sub = *posTurma;
+    sub.decrementSize();
+    aulas.erase(posTurma);
+    aulas.insert(sub);
+    auto posStudent = estudantes.find(student);
+    if (posStudent == estudantes.end()) {
+        return false;
+    }
+    Student tmp = *posStudent;
     tmp.removeTurma(turma);
+    estudantes.erase(posStudent);
+    estudantes.insert(tmp);
+    return true;
+}
+bool GestaoHor::addTurmaStudent(const Student &student, const UCTurma &turma) {
+    auto posTurma = aulas.find(turma);
+    if (posTurma == aulas.end() || posTurma->getSize() >= 30) {
+        return false;
+    }
+    UCTurma sub = *posTurma;
+    sub.incrementSize();
+    aulas.erase(posTurma);
+    aulas.insert(sub);auto posStudent = estudantes.find(student);
+    if (posStudent == estudantes.end()) {
+        return false;
+    }
+    Student tmp = *posStudent;
+    tmp.addTurma(turma);
+    estudantes.erase(posStudent);
+    estudantes.insert(tmp);
+    return true;
 }

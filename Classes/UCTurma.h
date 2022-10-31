@@ -25,10 +25,15 @@ public:
  * method print().
  * \n Complexity: O(n), with \a n being the size of the private member \a horarioUCTurma (the number of occurrences). */
     bool operator<(const UCTurma& turma) const;
+    void incrementSize();
+    void decrementSize();
+    int getSize() const;
+    UCTurma& operator=(const UCTurma& turma);
 private:
     string codUC_; /*!< \b String for the course's code (UC code). */
     string codTurma_; /*!< \b String for the class's code (Turma code). */
     vector<Slot> horarioUCTurma; /*!< A \b vector<Slot> with the occurrences of the instance. */
+    int size;
     //vector<Student&> alunos;
 };
 

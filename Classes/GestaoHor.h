@@ -24,7 +24,9 @@ public:
     void readStudents();
     void readUCTurma();
     void print() const;
-    void removeTurmaStudent(const Student& student, const UCTurma& turma);
+    bool removeTurmaStudent(const Student& student, const UCTurma& turma);
+    bool addTurmaStudent(const Student& student, const UCTurma& turma);
+    bool swapTurmaStudent(const Student& student, const UCTurma& removed, const UCTurma& added);
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;
