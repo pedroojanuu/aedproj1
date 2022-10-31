@@ -24,3 +24,8 @@ void UCTurma::print() const {
         horarioUCTurma[i].print();
     }
 }
+
+bool UCTurma::operator<(const UCTurma &turma) const {
+    if (codUC_ == turma.codUC_) return codTurma_ < turma.codTurma_;
+    return codUC_ < turma.codUC_;
+}

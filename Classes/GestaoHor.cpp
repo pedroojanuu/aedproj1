@@ -12,8 +12,8 @@ GestaoHor::GestaoHor() {
 }
 
 void GestaoHor::print() const {
-    for (int i = 0; i < aulas.size(); i++) {
-        aulas[i].print();
+    for (auto it = aulas.begin(); it != aulas.end(); it++) {
+        it->print();
     }
     for (auto it = estudantes.begin(); it != estudantes.end(); it++) {
         it->print();
@@ -23,7 +23,7 @@ void GestaoHor::print() const {
 //leitura de classes.csv/classes_per_uc.csv
 void GestaoHor::readUCTurma() {
     ifstream in("classes.csv");
-
+    vector<UCTurma> aux;
 
     string line;
     getline(in, line);
@@ -44,26 +44,27 @@ void GestaoHor::readUCTurma() {
         getline(iss, type);
         Slot slot = Slot(weekday, startHourFloat, durationFloat, type);
 
-        if (aulas.empty() || aulas.back().getUC() != ucCode) {
+        if (aux.empty() || aux.back().getUC() != ucCode) {
             UCTurma ucTurma = UCTurma(ucCode, classCode);
             ucTurma.addSlot(slot);
-            aulas.push_back(ucTurma);
+            aux.push_back(ucTurma);
         } else {
-            int i = aulas.size() - 1;
-            while (i != -1 && aulas.at(i).getUC() == ucCode) {
-                if (aulas.at(i).getTurma() == classCode) {
-                    aulas.at(i).addSlot(slot);
+            int i = aux.size() - 1;
+            while (i != -1 && aux.at(i).getUC() == ucCode) {
+                if (aux.at(i).getTurma() == classCode) {
+                    aux.at(i).addSlot(slot);
                     break;
                 }
                 i--;
             }
-            if (i == -1 || aulas.at(i).getUC() != ucCode) {
+            if (i == -1 || aux.at(i).getUC() != ucCode) {
                 UCTurma ucTurma = UCTurma(ucCode, classCode);
                 ucTurma.addSlot(slot);
-                aulas.push_back(ucTurma);
+                aux.push_back(ucTurma);
             }
         }
     }
+    aulas = set<UCTurma>(aux.begin(), aux.end());
 }
 
 // leitura de students_classes.csv

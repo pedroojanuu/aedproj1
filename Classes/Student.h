@@ -7,6 +7,8 @@
 
 using namespace std;
 
+class UCTurma;
+
 /**
  * @class Student class implements A class for Student, containing their name, unique code and a vector with the classes they're in.
  */

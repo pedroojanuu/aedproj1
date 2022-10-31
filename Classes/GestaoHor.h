@@ -27,7 +27,7 @@ public:
     void removeTurmaStudent(const Student& student, const UCTurma& turma);
 private:
     set<Student> estudantes;
-    vector<UCTurma> aulas;
+    set<UCTurma> aulas;
     vector<UCTurma> horario;
     queue<Pedido> pedidos;
 };

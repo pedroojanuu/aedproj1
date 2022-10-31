@@ -4,8 +4,11 @@
 #include <string>
 #include <vector>
 #include "Slot.h"
+#include "Student.h"
 
 using namespace std;
+
+class Student;
 
 /**
  * @class UCTurma class implements A class for an association between a class (\a Turma) and a course (\a UC), with
@@ -21,10 +24,12 @@ public:
     void print() const; /*!< Prints the course's code (UC), its class code (Turma) and its slots (occurrences), using the Slot class
  * method print().
  * \n Complexity: O(n), with \a n being the size of the private member \a horarioUCTurma (the number of occurrences). */
+    bool operator<(const UCTurma& turma) const;
 private:
     string codUC_; /*!< \b String for the course's code (UC code). */
     string codTurma_; /*!< \b String for the class's code (Turma code). */
     vector<Slot> horarioUCTurma; /*!< A \b vector<Slot> with the occurrences of the instance. */
+    //vector<Student&> alunos;
 };
 
 
