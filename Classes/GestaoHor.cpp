@@ -163,7 +163,7 @@ void GestaoHor::addPairSchedule(const pair<Slot,string>& uc) {
 void GestaoHor::printSchedule(int n) {
     Student student = Student(n, "");
     auto pos = estudantes.find(student);
-    if (pos == estudantes.end()) {cout << "not found"; return;}
+    if (pos == estudantes.end()) {cout << "Estudante nao encontrad@.\n\n"; return;}
     student = *pos;
     vector<pair<Slot,string>> h;
     horario = h;
@@ -173,9 +173,14 @@ void GestaoHor::printSchedule(int n) {
         cout << pair.second << ':';
         pair.first.print();
     }
+    cout << '\n';
 }
 
 const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma) const {
     auto pos = aulas.find(ucTurma);
     return pos;
+}
+
+void GestaoHor::printOccupation(const UCTurma& ucTurma) {
+    cout << findUC(ucTurma)->getSize() << endl;
 }

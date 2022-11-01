@@ -32,6 +32,7 @@ public:
     bool swapTurmaStudent(const Student& student, const UCTurma& removing, const UCTurma& adding);
     void addPairSchedule(const pair<Slot,string>& uc);
     void printSchedule(int n);
+    void printOccupation(const UCTurma& ucTurma);
     const _Rb_tree_const_iterator<UCTurma> findUC(const UCTurma& ucTurma) const;
 private:
     set<Student> estudantes;
