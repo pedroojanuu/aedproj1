@@ -12,7 +12,6 @@
 */
 
 #include "Student.h"
-#include "Pedido.h"
 #include <set>
 #include <queue>
 
@@ -34,6 +33,7 @@ public:
     void generateSchedule(const Student& student);
     void addSlotSchedule(const Slot& slot);
     void printSchedule(int n);
+    const _Rb_tree_const_iterator<UCTurma> findUC(const UCTurma& ucTurma) const;
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;

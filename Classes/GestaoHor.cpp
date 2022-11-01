@@ -170,9 +170,16 @@ void GestaoHor::addSlotSchedule(const Slot& slot) {
 void GestaoHor::printSchedule(int n) {
     Student student = Student(n, "");
     auto pos = estudantes.find(student);
+    if (pos == estudantes.end()) {cout << "not found"; return;}
     student = *pos;
     generateSchedule(student);
+    if (horario.empty()) {cout << "xx"; return;}
     for (Slot slot : horario) {
         slot.print();
     }
+}
+
+const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma) const {
+    auto pos = aulas.find(ucTurma);
+    return pos;
 }

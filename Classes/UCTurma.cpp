@@ -60,7 +60,7 @@ UCTurma& UCTurma::operator=(const UCTurma &turma) {
     return *this;
 }
 
-void UCTurma::loadSlots(GestaoHor g) const {
+void UCTurma::loadSlots(GestaoHor& g) const {
     for (Slot slot : horarioUCTurma) {
         g.addSlotSchedule(slot);
     }

@@ -29,7 +29,7 @@ public:
     void decrementSize();
     int getSize() const;
     UCTurma& operator=(const UCTurma& turma);
-    void loadSlots(GestaoHor g) const;
+    void loadSlots(GestaoHor& g) const;
 private:
     string codUC_; /*!< \b String for the course's code (UC code). */
     string codTurma_; /*!< \b String for the class's code (Turma code). */

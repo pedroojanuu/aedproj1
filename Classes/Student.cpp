@@ -56,8 +56,8 @@ void Student::removeTurma(const UCTurma &turma) {
     turmas.erase(itr);
 }
 
-void Student::loadSchedule(GestaoHor g) const {
+void Student::loadSchedule(GestaoHor& g) const {
     for (UCTurma ucTurma : turmas) {
-        ucTurma.loadSlots(g);
+        g.findUC(ucTurma)->loadSlots(g);
     }
 }
