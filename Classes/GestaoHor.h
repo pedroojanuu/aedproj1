@@ -30,14 +30,13 @@ public:
     bool removeTurmaStudent(const Student& student, const UCTurma& turma);
     bool addTurmaStudent(const Student& student, const UCTurma& turma);
     bool swapTurmaStudent(const Student& student, const UCTurma& removing, const UCTurma& adding);
-    void generateSchedule(const Student& student);
-    void addSlotSchedule(const Slot& slot);
+    void addPairSchedule(const pair<Slot,string>& uc);
     void printSchedule(int n);
     const _Rb_tree_const_iterator<UCTurma> findUC(const UCTurma& ucTurma) const;
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;
-    vector<Slot> horario;
+    vector<pair<Slot,string>> horario;
     //queue<Pedido> pedidos;
 };
 

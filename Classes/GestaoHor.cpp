@@ -156,15 +156,8 @@ bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing
     if ()
 }*/
 
-void GestaoHor::generateSchedule(const Student &student) {
-    vector<Slot> h;
-    horario = h;
-    student.loadSchedule(*this);
-    sort(horario.begin(), horario.end());
-}
-
-void GestaoHor::addSlotSchedule(const Slot& slot) {
-    horario.push_back(slot);
+void GestaoHor::addPairSchedule(const pair<Slot,string>& uc) {
+    horario.push_back(uc);
 }
 
 void GestaoHor::printSchedule(int n) {
@@ -172,10 +165,13 @@ void GestaoHor::printSchedule(int n) {
     auto pos = estudantes.find(student);
     if (pos == estudantes.end()) {cout << "not found"; return;}
     student = *pos;
-    generateSchedule(student);
-    if (horario.empty()) {cout << "xx"; return;}
-    for (Slot slot : horario) {
-        slot.print();
+    vector<pair<Slot,string>> h;
+    horario = h;
+    student.loadSchedule(*this);
+    sort(horario.begin(), horario.end());
+    for (pair<Slot,string> pair : horario) {
+        cout << pair.second << ':';
+        pair.first.print();
     }
 }
 
