@@ -1,6 +1,12 @@
 #include "Student.h"
 
 #include <iostream>
+/*
+Student::Student(int code) {
+    code_ = code;
+    vector<UCTurma> v;
+    turmas = v;
+}*/
 
 Student::Student(int code, const std::string &name) {
     code_ = code;
@@ -28,8 +34,7 @@ void Student::addTurma(const UCTurma& turma) {
 void Student::print() const {
     cout << code_ << ',' << name_ << endl;
     for (UCTurma turma : turmas) {
-        cout << "       ";
-        turma.print();
+        cout << "       " << turma.getUC() << ',' << turma.getTurma() << endl;
     }
 }
 
@@ -49,4 +54,10 @@ void Student::removeTurma(const UCTurma &turma) {
             break;
         }
     turmas.erase(itr);
+}
+
+void Student::loadSchedule(GestaoHor g) const {
+    for (UCTurma ucTurma : turmas) {
+        ucTurma.loadSlots(g);
+    }
 }

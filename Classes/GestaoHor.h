@@ -18,6 +18,10 @@
 
 using namespace std;
 
+class Student;
+class UCTurma;
+class Pedido;
+
 class GestaoHor {
 public:
     GestaoHor();
@@ -26,12 +30,15 @@ public:
     void print() const;
     bool removeTurmaStudent(const Student& student, const UCTurma& turma);
     bool addTurmaStudent(const Student& student, const UCTurma& turma);
-    bool swapTurmaStudent(const Student& student, const UCTurma& removed, const UCTurma& added);
+    bool swapTurmaStudent(const Student& student, const UCTurma& removing, const UCTurma& adding);
+    void generateSchedule(const Student& student);
+    void addSlotSchedule(const Slot& slot);
+    void printSchedule(int n);
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;
-    vector<UCTurma> horario;
-    queue<Pedido> pedidos;
+    vector<Slot> horario;
+    //queue<Pedido> pedidos;
 };
 
 

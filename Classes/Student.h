@@ -2,18 +2,24 @@
 #define AED_PROJ1_STUDENT_H
 
 #include <string>
+#include <algorithm>
 
 #include "UCTurma.h"
+#include "GestaoHor.h"
+#include "Pedido.h"
 
 using namespace std;
 
 class UCTurma;
+class GestaoHor;
+class Pedido;
 
 /**
  * @class Student class implements A class for Student, containing their name, unique code and a vector with the classes they're in.
  */
 class Student {
 public:
+    //Student(int code);
     Student(int code, const string& name); /*!< A constructor that receives an \b int code and a \b string name. */
     int getCode() const; /*!< Returns the student's code.\n Complexity: O(1). */
     string getName() const; /*!< Returns the student's name.\n Complexity: O(1). */
@@ -26,6 +32,7 @@ public:
  * same attributes, not a reference.\n Complexity: O(n), since we have to traverse all elements in the \b turmas vector, being n its size. */
     void removeTurma(const UCTurma& turma); /*!< Removes a class from the list of classes the student is in.
  * \n Complexity: O(n), being n the size of the \b turmas vector. */
+    void loadSchedule(GestaoHor g) const;
 private:
     int code_; /*!< \b Integer for the student's code. */
     string name_; /*!< \b String for the student's code. */

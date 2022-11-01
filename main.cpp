@@ -8,5 +8,8 @@ int main() {
     GestaoHor gestaoHor;
     gestaoHor.readUCTurma();
     gestaoHor.readStudents();
-    gestaoHor.print();
+    //gestaoHor.print();
+    int n;
+    cin >> n;
+    gestaoHor.printSchedule(n);
 }

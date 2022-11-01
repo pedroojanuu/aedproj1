@@ -4,6 +4,7 @@
 UCTurma::UCTurma(const string& codUC, const string& codTurma) {
     codUC_ = codUC;
     codTurma_ = codTurma;
+    size = 0;
 }
 
 string UCTurma::getUC() const {
@@ -24,7 +25,7 @@ void UCTurma::print() const {
         horarioUCTurma[i].print();
     }
 }
-
+/*
 bool UCTurma::operator<(const UCTurma &turma) const {
     if (codUC_ == turma.codUC_) {
         if (size == turma.size) {
@@ -32,6 +33,11 @@ bool UCTurma::operator<(const UCTurma &turma) const {
         }
         return size < turma.size;
     }
+    return codUC_ < turma.codUC_;
+}*/
+
+bool UCTurma::operator<(const UCTurma& turma) const {
+    if (codUC_ == turma.codUC_) return codTurma_ < turma.codTurma_;
     return codUC_ < turma.codUC_;
 }
 
@@ -52,4 +58,10 @@ UCTurma& UCTurma::operator=(const UCTurma &turma) {
     codTurma_ = turma.codTurma_;
     size = turma.size;
     return *this;
+}
+
+void UCTurma::loadSlots(GestaoHor g) const {
+    for (Slot slot : horarioUCTurma) {
+        g.addSlotSchedule(slot);
+    }
 }

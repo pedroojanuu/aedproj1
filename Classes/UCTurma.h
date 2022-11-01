@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Student;
+class GestaoHor;
 
 /**
  * @class UCTurma class implements A class for an association between a class (\a Turma) and a course (\a UC), with
@@ -29,12 +29,12 @@ public:
     void decrementSize();
     int getSize() const;
     UCTurma& operator=(const UCTurma& turma);
+    void loadSlots(GestaoHor g) const;
 private:
     string codUC_; /*!< \b String for the course's code (UC code). */
     string codTurma_; /*!< \b String for the class's code (Turma code). */
     vector<Slot> horarioUCTurma; /*!< A \b vector<Slot> with the occurrences of the instance. */
     int size;
-    //vector<Student&> alunos;
 };
 
 

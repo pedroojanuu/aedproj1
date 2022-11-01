@@ -14,6 +14,7 @@ public:
  * a \b string being the day of the week of the occurrence, a \b float that is the hour of the occurrence, a \b float that is its duration
  * and a \b string indicating the type of the occurrence (T, TP, PL). */
     void print() const; /*!< Prints the slot's weekday, type, hour and duration.\n Complexity: O(1). */
+    bool operator<(const Slot& slot) const;
 private:
     string dia_; /*!< A \b string indicating the day of the week of the lesson.*/
     string tipo_; /*!< A \b string indicating the kind of the lesson.*/

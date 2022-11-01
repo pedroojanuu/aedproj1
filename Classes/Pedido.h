@@ -2,8 +2,12 @@
 #define AED_PROJ1_PEDIDO_H
 
 #include "Student.h"
+#include "GestaoHor.h"
 
 using namespace std;
+
+class UCTurma;
+class Student;
 
 /**
  * @class Pedido class implements A class for a request for a change in the schedules, i.e. for when the client wants some
@@ -11,10 +15,10 @@ using namespace std;
  */
 class Pedido {
 public:
-    Pedido(const Student& pedinte, const vector<UCTurma>& turmas, bool joining); /*!< A constructor that receives a \b Student,
+    Pedido(const Student& pedinte, const vector<UCTurma>& turmas, bool joining, GestaoHor& g); /*!< A constructor that receives a \b Student,
  * a \b vector of classes (UCTurma) the client wants the student to leave or join and a \b boolean that indicates whether the
  * student should join or leave the given classes (\b true if joining, \b false if leaving). */
-    Pedido(const Student& pedinte, const vector<UCTurma>& a_remover, const vector<UCTurma>& a_adicionar); /*!< A constructor that
+    Pedido(const Student& pedinte, const vector<UCTurma>& a_remover, const vector<UCTurma>& a_adicionar, GestaoHor& g); /*!< A constructor that
  * receives a \b Student and two \b vectors of classes (UCTurma): one for the classes the client wants the student to join and another
  * for the classes they want them to leave. */
     bool processar_pedido(); /*!< A method that processes the request and makes the desired changes if the conditions for doing so
