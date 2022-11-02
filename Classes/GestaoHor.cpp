@@ -129,6 +129,9 @@ bool GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma)
     return true;
 }
 
+
+
+/*
 bool GestaoHor::addTurmaStudent(const Student &student, const UCTurma &turma) {
     auto posTurma = aulas.find(turma);
     if (posTurma == aulas.end() || posTurma->getSize() >= 30) {
@@ -147,16 +150,78 @@ bool GestaoHor::addTurmaStudent(const Student &student, const UCTurma &turma) {
     estudantes.erase(posStudent);
     estudantes.insert(tmp);
     return true;
-}
-/*
-bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing, const UCTurma &adding) {
-    auto removingit = aulas.find(removing);
-    auto addingit = aulas.find(adding);
-    if (removingit == aulas.end() || addingit == aulas.end()) return false;
-    if ()
 }*/
 
-void GestaoHor::addPairSchedule(const pair<Slot,string>& uc) {
+bool GestaoHor::addTurmaStudent(int n, const UCTurma &turma) {
+    auto posTurma = aulas.find(turma);
+    if (posTurma == aulas.end() || posTurma->getSize() >= 30) {
+        return false;
+    }
+    for(auto itr = posTurma; itr != aulas.end() && itr->getUC() == turma.getUC(); itr++) {
+        if (posTurma->getSize()+1 - itr->getSize() >= 4) {
+            return false;
+        }
+    }
+    for(auto itr = posTurma; itr != --aulas.begin() && itr->getUC() == turma.getUC(); itr--) {
+        if (posTurma->getSize()+1 - itr->getSize() >= 4) {
+            return false;
+        }
+    }
+    Student student = Student(n, "");
+    auto posStudent = estudantes.find(student);
+    if (posStudent == estudantes.end()) {
+        return false;
+    }
+    Student tmp = *posStudent;
+    tmp.addTurma(turma);
+    tmp.loadSchedule(*this);
+    if (!isScheduleValid()) return false;
+    UCTurma add = *posTurma;
+    add.incrementSize();
+    aulas.erase(posTurma);
+    aulas.insert(add);
+    estudantes.erase(posStudent);
+    estudantes.insert(tmp);
+    return true;
+}
+
+bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing, const UCTurma &adding) {
+    auto removingitr = aulas.find(removing);
+    auto addingitr = aulas.find(adding);
+    if (removingitr == aulas.end() || addingitr == aulas.end() || addingitr->getSize() >= 30) {
+        return false;
+    }
+    for(auto itr = addingitr; itr != aulas.end() || itr->getUC() == addingitr->getUC(); itr++) {
+        if (addingitr->getSize()+1 - itr->getSize() >= 4) {
+            return false;
+        }
+    }
+    for(auto itr = addingitr; itr != --aulas.begin() || itr->getUC() == addingitr->getUC(); itr--) {
+        if (addingitr->getSize()+1 - itr->getSize() >= 4) {
+            return false;
+        }
+    }
+    auto posStudent = estudantes.find(student);
+    if (posStudent == estudantes.end()) {
+        return false;
+    }
+    UCTurma sub = *removingitr;
+    sub.decrementSize();
+    aulas.erase(removingitr);
+    aulas.insert(sub);
+    UCTurma add = *addingitr;
+    add.incrementSize();
+    aulas.erase(removingitr);
+    aulas.insert(add);
+    Student tmp = *posStudent;
+    tmp.removeTurma(removing);
+    tmp.addTurma(adding);
+    estudantes.erase(posStudent);
+    estudantes.insert(tmp);
+    return true;
+}
+
+void GestaoHor::addPairSchedule(const pair<Slot,pair<string,string>>& uc) {
     horario.push_back(uc);
 }
 
@@ -165,12 +230,13 @@ void GestaoHor::printSchedule(int n) {
     auto pos = estudantes.find(student);
     if (pos == estudantes.end()) {cout << "Estudante nao encontrad@.\n\n"; return;}
     student = *pos;
-    vector<pair<Slot,string>> h;
+    vector<pair<Slot,pair<string,string>>> h;
     horario = h;
     student.loadSchedule(*this);
     sort(horario.begin(), horario.end());
-    for (pair<Slot,string> pair : horario) {
-        cout << pair.second << ':';
+    cout << "\nHorario de " << student.getName() << "\n\n";
+    for (pair<Slot,pair<string,string>> pair : horario) {
+        cout << pair.second.first << ':' << pair.second.second << ':';
         pair.first.print();
     }
     cout << '\n';
@@ -181,6 +247,18 @@ const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma)
     return pos;
 }
 
-void GestaoHor::printOccupation(const UCTurma& ucTurma) {
+void GestaoHor::printOccupation(const UCTurma& ucTurma) const {
     cout << findUC(ucTurma)->getSize() << endl;
+}
+
+bool GestaoHor::isScheduleValid() const {
+    for (size_t i = 0; i < horario.size()-1; i++) {
+        for (size_t j = i+1; j < horario.size(); j++) {
+            if (horario[i].first.getDay() != horario[j].first.getDay()) continue;
+            if (horario[i].first.getType() == "T" || horario[j].first.getType() == "T") continue;
+            if (horario[i].first.getHour() == horario[j].first.getHour()) return false;
+            if (horario[i].first.getHour() < horario[j].first.getHour() < horario[i].first.getHour()+horario[i].first.getDuration()) return false;
+        }
+    }
+    return true;
 }

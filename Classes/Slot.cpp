@@ -25,3 +25,19 @@ bool Slot::operator<(const Slot &slot) const {
     if (dia_ == "Thursday") return (slot.dia_ == "Friday" || slot.dia_ == "Saturday");
     return slot.dia_ == "Saturday";
 }
+
+string Slot::getDay() const {
+    return dia_;
+}
+
+string Slot::getType() const {
+    return tipo_;
+}
+
+float Slot::getHour() const {
+    return horaInicio_;
+}
+
+float Slot::getDuration() const {
+    return duracao_;
+}

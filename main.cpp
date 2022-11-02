@@ -23,17 +23,21 @@ void makePedido(GestaoHor& gestaoHor) {
     }
 }
 
-/*
 void ocupacao(GestaoHor& gestaoHor) {
-    UCTurma ucTurma = UCTurma()
-}*/
+    string codUC, codTurma;
+    cout << "Introduza o codigo da UC (no formato L.EICXXX)" << endl;
+    cin >> codUC;
+    cout << "Introduza o codigo da turma (no formato XLEICXXX)" << endl;
+    cin >> codTurma; cout << '\n';
+    
+}
 
 int main() {
     GestaoHor gestaoHor;
     gestaoHor.readUCTurma();
     gestaoHor.readStudents();
     //gestaoHor.print();
-    bool exiting = false;
+    /*bool exiting = false;
     while (!exiting) {
         cout << "Selecionar opcao (premir ENTER):\n"
                 "1 - Consultar horario de estudante\n"
@@ -57,5 +61,7 @@ int main() {
                 cout << "Opcao invalida. Por favor, tente novamente." << endl;
         }
     }
-    cout << "Adeus!" << endl;
+    cout << "Adeus!" << endl;*/
+    //gestaoHor.addTurmaStudent(202022597, UCTurma("L.EIC001","1LEIC05"));
+    gestaoHor.printSchedule(202022597);
 }

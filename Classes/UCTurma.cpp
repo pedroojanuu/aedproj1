@@ -62,7 +62,8 @@ UCTurma& UCTurma::operator=(const UCTurma &turma) {
 
 void UCTurma::loadSlots(GestaoHor& g) const {
     for (Slot slot : horarioUCTurma) {
-        pair<Slot, string> p {slot, codUC_};
+        pair<string,string> a {codUC_, codTurma_};
+        pair<Slot, pair<string,string>> p {slot, a};
         g.addPairSchedule(p);
     }
 }

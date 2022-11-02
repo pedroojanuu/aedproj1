@@ -28,16 +28,17 @@ public:
     void readUCTurma();
     void print() const;
     bool removeTurmaStudent(const Student& student, const UCTurma& turma);
-    bool addTurmaStudent(const Student& student, const UCTurma& turma);
+    bool addTurmaStudent(int n, const UCTurma& turma);
     bool swapTurmaStudent(const Student& student, const UCTurma& removing, const UCTurma& adding);
-    void addPairSchedule(const pair<Slot,string>& uc);
+    void addPairSchedule(const pair<Slot,pair<string,string>>& uc);
     void printSchedule(int n);
-    void printOccupation(const UCTurma& ucTurma);
+    void printOccupation(const UCTurma& ucTurma) const;
     const _Rb_tree_const_iterator<UCTurma> findUC(const UCTurma& ucTurma) const;
+    bool isScheduleValid() const;
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;
-    vector<pair<Slot,string>> horario;
+    vector<pair<Slot,pair<string,string>>> horario;
     //queue<Pedido> pedidos;
 };
 
