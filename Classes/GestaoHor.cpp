@@ -65,7 +65,6 @@ void GestaoHor::readUCTurma() {
         }
     }
     aulas = set<UCTurma>(aux.begin(), aux.end());
-    //aulas = aux;
 }
 
 // leitura de students_classes.csv
@@ -106,7 +105,6 @@ void GestaoHor::readStudents() {
         }
     }
     estudantes = set<Student>(temp.begin(), temp.end());
-    //copy(temp.begin(),temp.end(),inserter(estudantes,estudantes.end()));
 }
 
 bool GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma) {
@@ -128,29 +126,6 @@ bool GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma)
     estudantes.insert(tmp);
     return true;
 }
-
-
-
-/*
-bool GestaoHor::addTurmaStudent(const Student &student, const UCTurma &turma) {
-    auto posTurma = aulas.find(turma);
-    if (posTurma == aulas.end() || posTurma->getSize() >= 30) {
-        return false;
-    }
-    auto posStudent = estudantes.find(student);
-    if (posStudent == estudantes.end()) {
-        return false;
-    }
-    UCTurma sub = *posTurma;
-    sub.incrementSize();
-    aulas.erase(posTurma);
-    aulas.insert(sub);
-    Student tmp = *posStudent;
-    tmp.addTurma(turma);
-    estudantes.erase(posStudent);
-    estudantes.insert(tmp);
-    return true;
-}*/
 
 bool GestaoHor::addTurmaStudent(int n, const UCTurma &turma) {
     auto posTurma = aulas.find(turma);
@@ -191,12 +166,12 @@ bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing
     if (removingitr == aulas.end() || addingitr == aulas.end() || addingitr->getSize() >= 30) {
         return false;
     }
-    for(auto itr = addingitr; itr != aulas.end() || itr->getUC() == addingitr->getUC(); itr++) {
+    for(auto itr = addingitr; itr != aulas.end() && itr->getUC() == addingitr->getUC(); itr++) {
         if (addingitr->getSize()+1 - itr->getSize() >= 4) {
             return false;
         }
     }
-    for(auto itr = addingitr; itr != --aulas.begin() || itr->getUC() == addingitr->getUC(); itr--) {
+    for(auto itr = addingitr; itr != --aulas.begin() && itr->getUC() == addingitr->getUC(); itr--) {
         if (addingitr->getSize()+1 - itr->getSize() >= 4) {
             return false;
         }
@@ -205,6 +180,11 @@ bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing
     if (posStudent == estudantes.end()) {
         return false;
     }
+    Student tmp = *posStudent;
+    tmp.removeTurma(removing);
+    tmp.addTurma(adding);
+    tmp.loadSchedule(*this);
+    if(!isScheduleValid()) return false;
     UCTurma sub = *removingitr;
     sub.decrementSize();
     aulas.erase(removingitr);
@@ -213,9 +193,6 @@ bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing
     add.incrementSize();
     aulas.erase(removingitr);
     aulas.insert(add);
-    Student tmp = *posStudent;
-    tmp.removeTurma(removing);
-    tmp.addTurma(adding);
     estudantes.erase(posStudent);
     estudantes.insert(tmp);
     return true;
@@ -248,7 +225,8 @@ const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma)
 }
 
 void GestaoHor::printOccupation(const UCTurma& ucTurma) const {
-    cout << findUC(ucTurma)->getSize() << endl;
+    const _Rb_tree_const_iterator<UCTurma> uc = findUC(ucTurma);
+    cout << "A turma " << uc->getTurma() << " da UC " << uc->getUC() << " tem " << uc->getSize() << " estudantes inscrit@s." << endl;
 }
 
 bool GestaoHor::isScheduleValid() const {

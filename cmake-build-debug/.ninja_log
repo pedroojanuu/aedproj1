@@ -1,15 +1,18 @@
 # ninja log v5
-28	1982	6890942749477309	CMakeFiles/AED_Proj1.dir/main.cpp.obj	c4ce778909bcac49
-26	1008	6890258341902598	build.ninja	cd171fb8e7cf5dbd
-4298	4970	6890944563827505	AED_Proj1.exe	c52c067db90d3a47
+11	1672	6891007975012945	CMakeFiles/AED_Proj1.dir/main.cpp.obj	c4ce778909bcac49
+26	1008	6891009806930237	build.ninja	cd171fb8e7cf5dbd
+1673	2318	6891007981331297	AED_Proj1.exe	c52c067db90d3a47
 36	1514	6890931260286242	CMakeFiles/AED_Proj1.dir/Classes/Slot.cpp.obj	1570e11fdfd1fb49
 17	1684	6890943918022876	CMakeFiles/AED_Proj1.dir/Classes/UCTurma.cpp.obj	4076eb1729ce9b14
 36	1467	6890257230340385	CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.obj	dfe3f8431f488bc3
 38	2249	6890942752327160	CMakeFiles/AED_Proj1.dir/Classes/Student.cpp.obj	47111c3b8c80397a
-12	4297	6890944557171706	CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj	625818ef2a6a1feb
+21	3592	6891004132298903	CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj	625818ef2a6a1feb
 39	830	0	CMakeFiles/Doxygen	fb96649fada7c534
 39	830	0	C:/Users/Pedro/CLionProjects/AED_Proj1/cmake-build-debug/CMakeFiles/Doxygen	fb96649fada7c534
-10	3965	6890944884290182	CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj	625818ef2a6a1feb
-3965	4631	6890944890845033	AED_Proj1.exe	c52c067db90d3a47
-11	3544	6890944997351953	CMakeFiles/AED_Proj1.dir/Classes/GestaoHor.cpp.obj	625818ef2a6a1feb
-3545	4209	6890945003943323	AED_Proj1.exe	c52c067db90d3a47
+25	859	0	CMakeFiles/Doxygen	fb96649fada7c534
+25	859	0	C:/Users/Pedro/CLionProjects/AED_Proj1/cmake-build-debug/CMakeFiles/Doxygen	fb96649fada7c534
+11	1566	6891010325658226	CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.obj	dfe3f8431f488bc3
+1567	2286	6891010332652026	AED_Proj1.exe	cc2b8f59049f3d74
+25	1529	6891012613713997	CMakeFiles/AED_Proj1.dir/Classes/Pedido.cpp.obj	dfe3f8431f488bc3
+14	1837	6891012616801041	CMakeFiles/AED_Proj1.dir/main.cpp.obj	c4ce778909bcac49
+1838	2591	6891012624184009	AED_Proj1.exe	cc2b8f59049f3d74

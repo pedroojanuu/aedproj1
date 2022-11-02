@@ -81,31 +81,43 @@ $(function() {
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define AED_PROJ1_GESTAOHOR_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;Student.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;Pedido.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_gestao_hor.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="class_gestao_hor.html">GestaoHor</a> {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_gestao_hor.html">GestaoHor</a>();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> readStudents();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> readUCTurma();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> print() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> removeTurmaStudent(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; student, <span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; turma);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    set&lt;Student&gt; estudantes;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    vector&lt;UCTurma&gt; aulas;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    vector&lt;UCTurma&gt; horario;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    queue&lt;Pedido&gt; pedidos;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif </span><span class="comment">//AED_PROJ1_GESTAOHOR_H</span></div>
-<div class="ttc" id="aclass_gestao_hor_html"><div class="ttname"><a href="class_gestao_hor.html">GestaoHor</a></div><div class="ttdef"><b>Definition:</b> GestaoHor.h:21</div></div>
-<div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:13</div></div>
-<div class="ttc" id="aclass_u_c_turma_html"><div class="ttname"><a href="class_u_c_turma.html">UCTurma</a></div><div class="ttdef"><b>Definition:</b> UCTurma.h:14</div></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">using namespace </span>std;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span><a class="code hl_class" href="class_student.html">Student</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">class </span><a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">class </span><a class="code hl_class" href="class_pedido.html">Pedido</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_gestao_hor.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="class_gestao_hor.html">GestaoHor</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_class" href="class_gestao_hor.html">GestaoHor</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> readStudents();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> readUCTurma();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> print() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">bool</span> removeTurmaStudent(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; student, <span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; turma);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> addTurmaStudent(<span class="keywordtype">int</span> n, <span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; turma);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">bool</span> swapTurmaStudent(<span class="keyword">const</span> <a class="code hl_class" href="class_student.html">Student</a>&amp; student, <span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; removing, <span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; adding);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> addPairSchedule(<span class="keyword">const</span> pair&lt;<a class="code hl_class" href="class_slot.html">Slot</a>,pair&lt;string,string&gt;&gt;&amp; uc);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> printSchedule(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> printOccupation(<span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; ucTurma) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> _Rb_tree_const_iterator&lt;UCTurma&gt; findUC(<span class="keyword">const</span> <a class="code hl_class" href="class_u_c_turma.html">UCTurma</a>&amp; ucTurma) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> isScheduleValid() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    set&lt;Student&gt; estudantes;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    set&lt;UCTurma&gt; aulas;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    vector&lt;pair&lt;Slot,pair&lt;string,string&gt;&gt;&gt; horario;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">//queue&lt;Pedido&gt; pedidos;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">//AED_PROJ1_GESTAOHOR_H</span></div>
+<div class="ttc" id="aclass_gestao_hor_html"><div class="ttname"><a href="class_gestao_hor.html">GestaoHor</a></div><div class="ttdef"><b>Definition:</b> GestaoHor.h:24</div></div>
+<div class="ttc" id="aclass_pedido_html"><div class="ttname"><a href="class_pedido.html">Pedido</a></div><div class="ttdef"><b>Definition:</b> Pedido.h:7</div></div>
+<div class="ttc" id="aclass_slot_html"><div class="ttname"><a href="class_slot.html">Slot</a></div><div class="ttdef"><b>Definition:</b> Slot.h:11</div></div>
+<div class="ttc" id="aclass_student_html"><div class="ttname"><a href="class_student.html">Student</a></div><div class="ttdef"><b>Definition:</b> Student.h:19</div></div>
+<div class="ttc" id="aclass_u_c_turma_html"><div class="ttname"><a href="class_u_c_turma.html">UCTurma</a></div><div class="ttdef"><b>Definition:</b> UCTurma.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

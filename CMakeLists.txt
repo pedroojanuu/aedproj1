@@ -25,4 +25,4 @@ else(DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the documentation.")
 endif(DOXYGEN_FOUND)
 
-add_executable(AED_Proj1 main.cpp Classes/UCTurma.cpp Classes/UCTurma.h Classes/Slot.cpp Classes/Slot.h Classes/GestaoHor.cpp Classes/GestaoHor.h Classes/Student.cpp Classes/Student.h)
+add_executable(AED_Proj1 main.cpp Classes/UCTurma.cpp Classes/UCTurma.h Classes/Slot.cpp Classes/Slot.h Classes/GestaoHor.cpp Classes/GestaoHor.h Classes/Student.cpp Classes/Student.h Classes/Pedido.cpp Classes/Pedido.h)

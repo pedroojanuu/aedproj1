@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['code_5f_0',['code_',['../class_student.html#a32c4c2d1d34b296bbb842957e9790114',1,'Student']]],
-  ['codturma_5f_1',['codTurma_',['../class_u_c_turma.html#af59edca4c2cbef928d32dc72ae574a5b',1,'UCTurma']]],
-  ['coduc_5f_2',['codUC_',['../class_u_c_turma.html#a5a3fc995f0a2b29f60c9d633e7e0a371',1,'UCTurma']]]
+  ['dia_5f_0',['dia_',['../class_slot.html#a6a8e98eb855f40b37457f6bba21e76d8',1,'Slot']]],
+  ['duracao_5f_1',['duracao_',['../class_slot.html#a2823d2a91f0215fa4d5aadabca26ad85',1,'Slot']]]
 ];

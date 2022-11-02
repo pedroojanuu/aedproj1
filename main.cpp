@@ -6,16 +6,22 @@ using namespace std;
 
 void makePedido(GestaoHor& gestaoHor) {
     int option;
-    cout << "Selecionar opcao (premir ENTER):\n"
+    cout << "O seu pedido sera colocado numa fila e processado no fecho do programa (opcao 0 do menu principal). "
+            "Recebera informacao sobre cada pedido, indicando se o mesmo foi aceite ou nao.\n\n"
+            "Selecionar opcao (premir ENTER):\n"
             "1 - Inscrever estudante em turma\n"
             "2 - Remover estudante de turma\n"
             "3 - Trocar estudante de turma numa dada UC\n"
             "0 - Menu anterior" << endl;
     cin >> option; cout << '\n';
+    int n;
     switch (option) {
         case 1:
+            cout << "Introduza o numero de estudante." << endl; cin >> n; cout << '\n';
         case 2:
+            cout << "Introduza o numero de estudante." << endl; cin >> n; cout << '\n';
         case 3:
+            cout << "Introduza o numero de estudante." << endl; cin >> n; cout << '\n';
         default:
             cout << "Opcao invalida. Por favor, tente novamente." << endl;
         case 0:
@@ -29,7 +35,8 @@ void ocupacao(GestaoHor& gestaoHor) {
     cin >> codUC;
     cout << "Introduza o codigo da turma (no formato XLEICXXX)" << endl;
     cin >> codTurma; cout << '\n';
-    
+    gestaoHor.printOccupation(UCTurma(codUC, codTurma));
+    cout << '\n';
 }
 
 int main() {
@@ -37,7 +44,7 @@ int main() {
     gestaoHor.readUCTurma();
     gestaoHor.readStudents();
     //gestaoHor.print();
-    /*bool exiting = false;
+    bool exiting = false;
     while (!exiting) {
         cout << "Selecionar opcao (premir ENTER):\n"
                 "1 - Consultar horario de estudante\n"
@@ -56,12 +63,10 @@ int main() {
             case 2:
                 makePedido(gestaoHor); break;
             case 3:
-                //ocupacao(gestaoHor); break;
+                ocupacao(gestaoHor); break;
             default:
                 cout << "Opcao invalida. Por favor, tente novamente." << endl;
         }
     }
-    cout << "Adeus!" << endl;*/
-    //gestaoHor.addTurmaStudent(202022597, UCTurma("L.EIC001","1LEIC05"));
-    gestaoHor.printSchedule(202022597);
+    cout << "Adeus!" << endl;
 }
