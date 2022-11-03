@@ -11,11 +11,8 @@ GestaoHor::GestaoHor() {
 
 }
 
-void GestaoHor::print() const {
-    for (auto it = aulas.begin(); it != aulas.end(); it++) {
-        it->print();
-    }
-    for (auto it = estudantes.begin(); it != estudantes.end(); it++) {
+void GestaoHor::printStudents() const {
+    for (auto it = temp.begin(); it != temp.end(); it++) {
         it->print();
     }
 }
@@ -36,11 +33,9 @@ void GestaoHor::readUCTurma() {
         getline(iss, ucCode, ',');
         getline(iss, weekday, ',');
         getline(iss, startHour, ',');
-        istringstream sh(startHour);
-        sh >> startHourFloat;
+        startHourFloat = stof(startHour);
         getline(iss, duration, ',');
-        istringstream du(duration);
-        du >> durationFloat;
+        durationFloat = stof(duration);
         getline(iss, type);
         Slot slot = Slot(weekday, startHourFloat, durationFloat, type);
 
@@ -73,7 +68,6 @@ void GestaoHor::readStudents() {
     string line;
     getline(in, line);
 
-    vector<Student> temp;
 
     while (getline(in, line)) {
         string StudentCode, StudentName, UcCode, ClassCode;
@@ -83,8 +77,7 @@ void GestaoHor::readStudents() {
         getline(iss, StudentName, ',');
         getline(iss, UcCode, ',');
         getline(iss, ClassCode, ',');
-        istringstream sc(StudentCode);
-        sc >> StudentCodeInt;
+        StudentCodeInt = stoi(StudentCode);
         UCTurma ucTurma = UCTurma(UcCode, ClassCode);
 
         if (temp.empty() || temp.back().getCode() != StudentCodeInt) {
@@ -100,8 +93,6 @@ void GestaoHor::readStudents() {
             aulas.erase(pos);
             sub.incrementSize();
             aulas.insert(sub);
-        } else {
-            cout << "here";
         }
     }
     estudantes = set<Student>(temp.begin(), temp.end());
@@ -205,13 +196,13 @@ void GestaoHor::addPairSchedule(const pair<Slot,pair<string,string>>& uc) {
 void GestaoHor::printSchedule(int n) {
     Student student = Student(n, "");
     auto pos = estudantes.find(student);
-    if (pos == estudantes.end()) {cout << "Estudante não encontrad@.\n\n"; return;}
+    if (pos == estudantes.end()) {cout << "Estudante nao encontrad@.\n\n"; return;}
     student = *pos;
     vector<pair<Slot,pair<string,string>>> h;
     horario = h;
     student.loadSchedule(*this);
     sort(horario.begin(), horario.end());
-    cout << "\nHorário de " << student.getName() << "\n\n";
+    cout << "\nHorario de " << student.getName() << "\n\n";
     for (pair<Slot,pair<string,string>> pair : horario) {
         cout << pair.second.first << ':' << pair.second.second << ':';
         pair.first.print();
@@ -227,7 +218,7 @@ const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma)
 void GestaoHor::printOccupation(const UCTurma& ucTurma) const {
     const _Rb_tree_const_iterator<UCTurma> uc = findUC(ucTurma);
     if (uc == aulas.end()) {
-        cout << "Turma não encontrada." << endl;
+        cout << "Turma nao encontrada." << endl;
         return;
     }
     cout << "A turma " << uc->getTurma() << " da UC " << uc->getUC() << " tem " << uc->getSize() << " estudantes inscrit@s." << endl;
@@ -245,6 +236,8 @@ bool GestaoHor::isScheduleValid() const {
     return true;
 }
 
+
+
 bool GestaoHor::processPedido(bool def) {
     Pedido pedido = pedidos.front();
     pedidos.pop();
@@ -258,7 +251,7 @@ bool GestaoHor::processPedido(bool def) {
             break;
         case 3:
             r = swapTurmaStudent(pedido.getCode(),UCTurma(pedido.getRemoving().first,pedido.getRemoving().second),
-                                    UCTurma(pedido.getAdding().first,pedido.getAdding().second));
+                                 UCTurma(pedido.getAdding().first,pedido.getAdding().second));
             break;
         default:
             r = false;
@@ -281,7 +274,7 @@ bool GestaoHor::processPedido(bool def) {
 
 void GestaoHor::addPedido(const Pedido &pedido) {
     pedidos.push(pedido);
-    cout << "O seu pedido foi registado com o número " << pedidos.size() << "." << endl;
+    cout << "O seu pedido foi registado com o numero " << pedidos.size() << "." << endl;
     cout << '\n';
 }
 
@@ -295,10 +288,70 @@ void GestaoHor::write() const {
     ofs.close();
     ofs.open("students_classes.csv", ofstream::out | ofstream::app);
     ofs << "StudentCode,StudentName,UcCode,ClassCode\n";
-    for (Student student : estudantes) {
-        for (UCTurma ucTurma : student.getTurmas()) {
+    for (const Student & student : estudantes) {
+        for ( const UCTurma & ucTurma : student.getTurmas()) {
             ofs << student.getCode() << ',' << student.getName() << ','
-            << ucTurma.getUC() << ',' << ucTurma.getTurma() << '\n';
+                << ucTurma.getUC() << ',' << ucTurma.getTurma() << '\n';
         }
     }
+}
+
+int GestaoHor::showStudentsByYear(char year) const{
+    int n = 0;
+    cout << "StudentCode,StudentName\n";
+    for (const Student & student : temp) {
+        for (const UCTurma & ucTurma : student.getTurmas()) {
+            if (ucTurma.getTurma()[0] == year) {
+                cout << student.getCode() << ',' << student.getName() << '\n';
+                n++;
+                break;
+            }
+        }
+    }
+    return n;
+}
+
+
+int GestaoHor::showStudentsByClass(const UCTurma & turma) const{
+    int n = 0;
+    cout << "StudentCode,StudentName\n";
+    for (const Student & student : temp) {
+        for (const UCTurma & t : student.getTurmas()) {
+            if (t.getUC() == turma.getUC() && t.getTurma() == turma.getTurma()) {
+                cout << student.getCode() << ',' << student.getName() << '\n';
+                n++;
+                break;
+            }
+        }
+    }
+    return n;
+}
+
+int GestaoHor::showStudentsByUC(string UC) const{
+    int n = 0;
+    cout << "StudentCode,StudentName\n";
+    for (const Student & student : temp) {
+        for (UCTurma t : student.getTurmas()) {
+            if (t.getUC() == UC) {
+                cout << student.getCode() << ',' << student.getName() << '\n';
+                n++;
+                break;
+            }
+        }
+    }
+    return n;
+}
+
+void GestaoHor::alphabeticOrder() {
+    sort(temp.begin(),temp.end(),[](Student const &a, Student const &b){
+        return a.getName() < b.getName();
+    });
+}
+
+void GestaoHor::numericOrder() {
+    sort(temp.begin(),temp.end());
+}
+
+int GestaoHor::studentsSize() const{
+    return estudantes.size();
 }

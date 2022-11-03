@@ -1,12 +1,6 @@
 #include "Student.h"
 
 #include <iostream>
-/*
-Student::Student(int code) {
-    code_ = code;
-    vector<UCTurma> v;
-    turmas = v;
-}*/
 
 Student::Student(int code, const std::string &name) {
     code_ = code;
@@ -33,15 +27,16 @@ void Student::addTurma(const UCTurma& turma) {
 
 void Student::print() const {
     cout << code_ << ',' << name_ << endl;
-    for (UCTurma turma : turmas) {
-        cout << "       " << turma.getUC() << ',' << turma.getTurma() << endl;
-    }
 }
 
 Student& Student::operator=(const Student& student) {
+
+
+
     name_ = student.name_;
     code_ = student.code_;
-    for(UCTurma turma : student.turmas) {
+    turmas.clear();
+    for(const UCTurma & turma : student.turmas) {
         turmas.push_back(turma);
     }
     return *this;
@@ -57,7 +52,7 @@ void Student::removeTurma(const UCTurma &turma) {
 }
 
 void Student::loadSchedule(GestaoHor& g) const {
-    for (UCTurma ucTurma : turmas) {
+    for (const UCTurma & ucTurma : turmas) {
         g.findUC(ucTurma)->loadSlots(g);
     }
 }
@@ -65,3 +60,4 @@ void Student::loadSchedule(GestaoHor& g) const {
 vector<UCTurma> Student::getTurmas() const {
     return turmas;
 }
+

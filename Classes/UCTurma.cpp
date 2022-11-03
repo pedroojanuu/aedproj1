@@ -53,12 +53,6 @@ int UCTurma::getSize() const{
     return size;
 }
 
-UCTurma& UCTurma::operator=(const UCTurma &turma) {
-    codUC_ = turma.codUC_;
-    codTurma_ = turma.codTurma_;
-    size = turma.size;
-    return *this;
-}
 
 void UCTurma::loadSlots(GestaoHor& g) const {
     for (Slot slot : horarioUCTurma) {

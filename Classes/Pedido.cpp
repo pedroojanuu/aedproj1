@@ -7,15 +7,15 @@ Pedido::Pedido(int n, short option, const pair<string,string> & adding, const pa
     removing_ = removing;
 }
 
-short Pedido::getOption() const {
+short Pedido::getOption() const{
     return option_;
 }
 
-pair<string,string> Pedido::getAdding() const {
+pair<string,string> Pedido::getAdding() const{
     return adding_;
 }
 
-pair<string, string> Pedido::getRemoving() const {
+pair<string, string> Pedido::getRemoving() const{
     return removing_;
 }
 

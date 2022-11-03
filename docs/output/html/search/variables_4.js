@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tipo_5f_0',['tipo_',['../class_slot.html#a50e951933d3d2c7e012a18b019403be5',1,'Slot']]],
-  ['turmas_1',['turmas',['../class_student.html#a4efb20099201b1ebf7f0b069ce4c048f',1,'Student']]]
+  ['n_5f_0',['n_',['../class_pedido.html#aae5d405060ddfdfa1185ce3876b6f7b3',1,'Pedido']]],
+  ['name_5f_1',['name_',['../class_student.html#af035a1ac510d8f9b27475932ea0cb1b5',1,'Student']]]
 ];

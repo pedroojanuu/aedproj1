@@ -28,11 +28,13 @@ public:
     void print() const; /*!< Prints the student's code, name and the classes they're in, using the UCTurma class method print().
  * \n Complexity: O(n), with \a n being the size of the private member \a turmas (the number of classes the student is in). */
     Student& operator=(const Student& student); /*!< Overload of operator = (assignment/copy). Returns a new Student with the
- * same attributes, not a reference.\n Complexity: O(n), since we have to traverse all elements in the \b turmas vector, being n its size. */
+ * same attributes, not a reference.\n Complexity: O(n), since it has to traverse all elements in the \b turmas vector, being n its size. */
     void removeTurma(const UCTurma& turma); /*!< Removes a class from the list of classes the student is in.
  * \n Complexity: O(n), being n the size of the \b turmas vector. */
-    void loadSchedule(GestaoHor& g) const;
-    vector<UCTurma> getTurmas() const;
+    void loadSchedule(GestaoHor& g) const; /*!< Loads the student's schedule into a given GestaoHor object.\n
+ * Complexity: O(n^2), being n the maximum between the number of classes (size of vector \b turmas) and the number of slots of each class. */
+    vector<UCTurma> getTurmas() const; /*!< Returns a copy of the \b turmas vector.\n Complexity: O(n), since it has
+ * to traverse all the vector's elements. */
 private:
     int code_; /*!< \b Integer for the student's code. */
     string name_; /*!< \b String for the student's code. */
