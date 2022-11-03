@@ -107,12 +107,12 @@ void GestaoHor::readStudents() {
     estudantes = set<Student>(temp.begin(), temp.end());
 }
 
-bool GestaoHor::removeTurmaStudent(const Student &student, const UCTurma &turma) {
+bool GestaoHor::removeTurmaStudent(int n, const UCTurma &turma) {
     auto posTurma = aulas.find(turma);
     if (posTurma == aulas.end()) {
         return false;
     }
-    auto posStudent = estudantes.find(student);
+    auto posStudent = estudantes.find(Student(n,""));
     if (posStudent == estudantes.end()) {
         return false;
     }
@@ -160,7 +160,7 @@ bool GestaoHor::addTurmaStudent(int n, const UCTurma &turma) {
     return true;
 }
 
-bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing, const UCTurma &adding) {
+bool GestaoHor::swapTurmaStudent(int n, const UCTurma &removing, const UCTurma &adding) {
     auto removingitr = aulas.find(removing);
     auto addingitr = aulas.find(adding);
     if (removingitr == aulas.end() || addingitr == aulas.end() || addingitr->getSize() >= 30) {
@@ -176,7 +176,7 @@ bool GestaoHor::swapTurmaStudent(const Student &student, const UCTurma &removing
             return false;
         }
     }
-    auto posStudent = estudantes.find(student);
+    auto posStudent = estudantes.find(Student(n,""));
     if (posStudent == estudantes.end()) {
         return false;
     }
@@ -205,13 +205,13 @@ void GestaoHor::addPairSchedule(const pair<Slot,pair<string,string>>& uc) {
 void GestaoHor::printSchedule(int n) {
     Student student = Student(n, "");
     auto pos = estudantes.find(student);
-    if (pos == estudantes.end()) {cout << "Estudante nao encontrad@.\n\n"; return;}
+    if (pos == estudantes.end()) {cout << "Estudante não encontrad@.\n\n"; return;}
     student = *pos;
     vector<pair<Slot,pair<string,string>>> h;
     horario = h;
     student.loadSchedule(*this);
     sort(horario.begin(), horario.end());
-    cout << "\nHorario de " << student.getName() << "\n\n";
+    cout << "\nHorário de " << student.getName() << "\n\n";
     for (pair<Slot,pair<string,string>> pair : horario) {
         cout << pair.second.first << ':' << pair.second.second << ':';
         pair.first.print();
@@ -226,6 +226,10 @@ const _Rb_tree_const_iterator<UCTurma> GestaoHor::findUC(const UCTurma &ucTurma)
 
 void GestaoHor::printOccupation(const UCTurma& ucTurma) const {
     const _Rb_tree_const_iterator<UCTurma> uc = findUC(ucTurma);
+    if (uc == aulas.end()) {
+        cout << "Turma não encontrada." << endl;
+        return;
+    }
     cout << "A turma " << uc->getTurma() << " da UC " << uc->getUC() << " tem " << uc->getSize() << " estudantes inscrit@s." << endl;
 }
 
@@ -239,4 +243,62 @@ bool GestaoHor::isScheduleValid() const {
         }
     }
     return true;
+}
+
+bool GestaoHor::processPedido(bool def) {
+    Pedido pedido = pedidos.front();
+    pedidos.pop();
+    bool r;
+    switch (pedido.getOption()) {
+        case 1:
+            r = addTurmaStudent(pedido.getCode(),UCTurma(pedido.getAdding().first,pedido.getAdding().second));
+            break;
+        case 2:
+            r = removeTurmaStudent(pedido.getCode(), UCTurma(pedido.getRemoving().first,pedido.getRemoving().second));
+            break;
+        case 3:
+            r = swapTurmaStudent(pedido.getCode(),UCTurma(pedido.getRemoving().first,pedido.getRemoving().second),
+                                    UCTurma(pedido.getAdding().first,pedido.getAdding().second));
+            break;
+        default:
+            r = false;
+    }
+    if (!def && r && pedido.getOption() != 2) {
+        Student student = Student(pedido.getCode(), "");
+        auto s = estudantes.find(student);
+        student = *s;
+        fstream fout;
+        fout.open("../changes.csv", ios::out | ios::app);
+        int code = pedido.getCode();
+        string name = student.getName();
+        string uc = pedido.getAdding().first;
+        string turma = pedido.getAdding().second;
+        fout << code << ',' << name << ',' << uc << ',' << turma << '\n';
+        fout.close();
+    }
+    return r;
+}
+
+void GestaoHor::addPedido(const Pedido &pedido) {
+    pedidos.push(pedido);
+    cout << "O seu pedido foi registado com o número " << pedidos.size() << "." << endl;
+    cout << '\n';
+}
+
+bool GestaoHor::pedidosEmpty() const{
+    return pedidos.empty();
+}
+
+void GestaoHor::write() const {
+    ofstream ofs;
+    ofs.open("students_classes.csv", ofstream::out | ofstream::trunc);
+    ofs.close();
+    ofs.open("students_classes.csv", ofstream::out | ofstream::app);
+    ofs << "StudentCode,StudentName,UcCode,ClassCode\n";
+    for (Student student : estudantes) {
+        for (UCTurma ucTurma : student.getTurmas()) {
+            ofs << student.getCode() << ',' << student.getName() << ','
+            << ucTurma.getUC() << ',' << ucTurma.getTurma() << '\n';
+        }
+    }
 }

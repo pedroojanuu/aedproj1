@@ -61,3 +61,7 @@ void Student::loadSchedule(GestaoHor& g) const {
         g.findUC(ucTurma)->loadSlots(g);
     }
 }
+
+vector<UCTurma> Student::getTurmas() const {
+    return turmas;
+}

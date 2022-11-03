@@ -32,6 +32,7 @@ public:
     void removeTurma(const UCTurma& turma); /*!< Removes a class from the list of classes the student is in.
  * \n Complexity: O(n), being n the size of the \b turmas vector. */
     void loadSchedule(GestaoHor& g) const;
+    vector<UCTurma> getTurmas() const;
 private:
     int code_; /*!< \b Integer for the student's code. */
     string name_; /*!< \b String for the student's code. */

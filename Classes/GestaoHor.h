@@ -12,8 +12,10 @@
 */
 
 #include "Student.h"
+#include "Pedido.h"
 #include <set>
 #include <queue>
+#include <fstream>
 
 using namespace std;
 
@@ -27,19 +29,23 @@ public:
     void readStudents();
     void readUCTurma();
     void print() const;
-    bool removeTurmaStudent(const Student& student, const UCTurma& turma);
+    bool removeTurmaStudent(int n, const UCTurma& turma);
     bool addTurmaStudent(int n, const UCTurma& turma);
-    bool swapTurmaStudent(const Student& student, const UCTurma& removing, const UCTurma& adding);
+    bool swapTurmaStudent(int n, const UCTurma& removing, const UCTurma& adding);
     void addPairSchedule(const pair<Slot,pair<string,string>>& uc);
     void printSchedule(int n);
     void printOccupation(const UCTurma& ucTurma) const;
     const _Rb_tree_const_iterator<UCTurma> findUC(const UCTurma& ucTurma) const;
     bool isScheduleValid() const;
+    void addPedido(const Pedido& pedido);
+    bool processPedido(bool def);
+    bool pedidosEmpty() const;
+    void write() const;
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;
     vector<pair<Slot,pair<string,string>>> horario;
-    //queue<Pedido> pedidos;
+    queue<Pedido> pedidos;
 };
 
 
