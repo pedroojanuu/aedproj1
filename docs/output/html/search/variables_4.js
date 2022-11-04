@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['n_5f_0',['n_',['../class_pedido.html#aae5d405060ddfdfa1185ce3876b6f7b3',1,'Pedido']]],
-  ['name_5f_1',['name_',['../class_student.html#af035a1ac510d8f9b27475932ea0cb1b5',1,'Student']]]
+  ['horainicio_5f_0',['horaInicio_',['../class_slot.html#a0399fa444cb0f4bd2620c1fc21fc10c0',1,'Slot']]],
+  ['horario_1',['horario',['../class_gestao_hor.html#a299e2f0b1e99311d6c5160111be49a69',1,'GestaoHor']]],
+  ['horarioucturma_2',['horarioUCTurma',['../class_u_c_turma.html#a1dbeea61e4962c2162cb306f1336e052',1,'UCTurma']]]
 ];

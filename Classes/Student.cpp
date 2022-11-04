@@ -26,7 +26,7 @@ void Student::addTurma(const UCTurma& turma) {
 }
 
 void Student::print() const {
-    cout << code_ << ',' << name_ << endl;
+    cout << code_ << " | " << name_ << endl;
 }
 
 Student& Student::operator=(const Student& student) {

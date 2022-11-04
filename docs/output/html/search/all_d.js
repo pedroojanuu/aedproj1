@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['tipo_5f_0',['tipo_',['../class_slot.html#a50e951933d3d2c7e012a18b019403be5',1,'Slot']]],
-  ['turmas_1',['turmas',['../class_student.html#a4efb20099201b1ebf7f0b069ce4c048f',1,'Student']]]
+  ['readstudents_0',['readStudents',['../class_gestao_hor.html#a838da8e987d9ae1f972c1f86d9a243bb',1,'GestaoHor']]],
+  ['readucturma_1',['readUCTurma',['../class_gestao_hor.html#ada445b2290d73ed71e918b09e537172d',1,'GestaoHor']]],
+  ['removeturma_2',['removeTurma',['../class_student.html#af9acddfbef5ee2deab3e1726ddcd4613',1,'Student']]],
+  ['removeturmastudent_3',['removeTurmaStudent',['../class_gestao_hor.html#a293484f38d33e2bdf85ea5e9de5b691f',1,'GestaoHor']]],
+  ['removing_5f_4',['removing_',['../class_pedido.html#a099b5b4250e3cac32767767bb5bb59a3',1,'Pedido']]],
+  ['roll_5',['roll',['../class_gestao_hor.html#a7037a67e6123c3d45b9ed7b2738bae05',1,'GestaoHor']]]
 ];

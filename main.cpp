@@ -1,9 +1,20 @@
 #include <iostream>
-
-#include "Classes/GestaoHor.h"
 #include <fstream>
 
+#include "Classes/GestaoHor.h"
+
 using namespace std;
+
+/**
+ * @file
+ * vfivhvhjkvyubvf
+ */
+
+bool is_number(const string& s) {
+    string::const_iterator it = s.begin();
+    while (it != s.end() && isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
+}
 
 void makePedido(GestaoHor& gestaoHor) {
     int option;
@@ -15,14 +26,13 @@ void makePedido(GestaoHor& gestaoHor) {
             "3 - Trocar estudante de turma numa dada UC\n"
             "0 - Menu anterior" << endl;
     cin >> option; cout << '\n';
-    int n;
+    string n;
     string uc, adding, removing;
     switch (option) {
         case 1:
-            cout << "Introduza o numero de estudante" << endl; cin >> n; cout << '\n';
-            if(to_string(n).length() != 9) {
-                cout << "Codigo invalido. Por favor, tente novamente." << endl;
-                cout << '\n';
+            cout << "Introduza o numero mecanografico" << endl; cin >> n; cout << '\n';
+            if(n.length() != 9 || !is_number(n)) {
+                cout << "Numero invalido. Por favor, tente novamente." << endl;
                 return;
             }
             cout << "Introduza o codigo da UC a que deseja adicionar (no formato L.EICXXX)" << endl; cin >> uc; cout << '\n';
@@ -37,13 +47,11 @@ void makePedido(GestaoHor& gestaoHor) {
                 cout << '\n';
                 return;
             }
-            gestaoHor.addPedido(Pedido(n, 1, make_pair(uc,adding)));
+            gestaoHor.addPedido(Pedido(stoi(n), 1, make_pair(uc,adding)));
             break;
         case 2:
-            cout << "Introduza o numero de estudante" << endl; cin >> n; cout << '\n';
-            if(to_string(n).length() != 9) {
-                cout << "Codigo invalido. Por favor, tente novamente." << endl;
-                cout << '\n';
+            if(n.length() != 9 || !is_number(n)) {
+                cout << "Numero invalido. Por favor, tente novamente." << endl;
                 return;
             }
             cout << "Introduza o codigo da UC de que deseja remover (no formato L.EICXXX)" << endl; cin >> uc; cout << '\n';
@@ -58,13 +66,12 @@ void makePedido(GestaoHor& gestaoHor) {
                 cout << '\n';
                 return;
             }
-            gestaoHor.addPedido(Pedido(n, 2,make_pair("","") ,make_pair(uc,removing)));
+            gestaoHor.addPedido(Pedido(stoi(n), 2,make_pair("","") ,make_pair(uc,removing)));
             break;
         case 3:
-            cout << "Introduza o numero de estudante" << endl; cin >> n; cout << '\n';
-            if(to_string(n).length() != 9) {
-                cout << "Codigo invalido. Por favor, tente novamente." << endl;
-                cout << '\n';
+            cout << "Introduza o numero mecanografico" << endl; cin >> n; cout << '\n';
+            if(n.length() != 9 || !is_number(n)) {
+                cout << "Numero invalido. Por favor, tente novamente." << endl;
                 return;
             }
             cout << "Introduza o codigo da UC que deseja substituir (no formato L.EICXXX)" << endl; cin >> uc; cout << '\n';
@@ -85,7 +92,7 @@ void makePedido(GestaoHor& gestaoHor) {
                 cout << '\n';
                 return;
             }
-            gestaoHor.addPedido(Pedido(n, 3,make_pair(uc,adding) ,make_pair(uc,removing)));
+            gestaoHor.addPedido(Pedido(stoi(n), 3,make_pair(uc,adding) ,make_pair(uc,removing)));
             break;
         default:
             cout << "Opcao invalida. Por favor, tente novamente." << endl; cout << '\n';
@@ -129,7 +136,7 @@ void ocupacao(GestaoHor& gestaoHor) {
         cout << '\n';
         return;
     }
-    cout << "Introduza o codigo da turma (no formato XLEICXXX)" << endl;
+    cout << "Introduza o codigo da turma (no formato XLEICXX)" << endl;
     cin >> codTurma; cout << '\n';
     if (codTurma.substr(1,4) != "LEIC") {
         cout << "Codigo invalido. Por favor, tente novamente." << endl;
@@ -159,7 +166,7 @@ void listagens(GestaoHor & gestaoHor) {
             "1 - Todos os estudantes\n"
             "2 - Estudantes por ano\n"
             "3 - Estudantes por UC\n"
-            "4 - Estudantes por turma\n"
+            "4 - Estudantes por turma de UC\n"
             "0 - Menu anterior" << endl;
     cin >> option; cout << '\n';
     int n;
@@ -236,6 +243,7 @@ int main() {
                 "0 - Sair e processar pedidos" << endl;
         int option;
         cin >> option; cout << '\n';
+        string n;
         switch (option) {
             case 0:
                 exiting = true;
@@ -260,9 +268,13 @@ int main() {
                 }
                 break;
             case 1:
-                int n; cout << "Introduza o numero mecanografico" << endl; cin >> n;
+                cout << "Introduza o numero mecanografico" << endl; cin >> n;
                 cout << '\n';
-                gestaoHor.printSchedule(n); break;
+                if(n.length() != 9 || !is_number(n)) {
+                    cout << "Numero invalido. Por favor, tente novamente." << endl;
+                    break;
+                }
+                gestaoHor.printSchedule(stoi(n)); break;
             case 2:
                 makePedido(gestaoHor); break;
             case 3:

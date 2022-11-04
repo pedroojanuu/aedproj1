@@ -12,7 +12,8 @@ GestaoHor::GestaoHor() {
 }
 
 void GestaoHor::printStudents() const {
-    for (auto it = temp.begin(); it != temp.end(); it++) {
+    cout << "StudentCode | StudentName" << endl;
+    for (auto it = roll.begin(); it != roll.end(); it++) {
         it->print();
     }
 }
@@ -62,6 +63,7 @@ void GestaoHor::readUCTurma() {
 }
 
 void GestaoHor::readStudents() {
+    vector<Student> temp;
     ifstream in("students_classes.csv");
     string line;
     getline(in, line);
@@ -294,11 +296,11 @@ void GestaoHor::write() const {
 
 int GestaoHor::showStudentsByYear(char year) const{
     int n = 0;
-    cout << "StudentCode,StudentName\n";
-    for (const Student & student : temp) {
+    cout << "StudentCode | StudentName\n";
+    for (const Student & student : roll) {
         for (const UCTurma & ucTurma : student.getTurmas()) {
             if (ucTurma.getTurma()[0] == year) {
-                cout << student.getCode() << ',' << student.getName() << '\n';
+                cout << student.getCode() << " | " << student.getName() << '\n';
                 n++;
                 break;
             }
@@ -309,11 +311,11 @@ int GestaoHor::showStudentsByYear(char year) const{
 
 int GestaoHor::showStudentsByClass(const UCTurma & turma) const{
     int n = 0;
-    cout << "StudentCode,StudentName\n";
-    for (const Student & student : temp) {
+    cout << "StudentCode | StudentName\n";
+    for (const Student & student : roll) {
         for (const UCTurma & t : student.getTurmas()) {
             if (t.getUC() == turma.getUC() && t.getTurma() == turma.getTurma()) {
-                cout << student.getCode() << ',' << student.getName() << '\n';
+                cout << student.getCode() << " | " << student.getName() << '\n';
                 n++;
                 break;
             }
@@ -324,11 +326,11 @@ int GestaoHor::showStudentsByClass(const UCTurma & turma) const{
 
 int GestaoHor::showStudentsByUC(string UC) const{
     int n = 0;
-    cout << "StudentCode,StudentName\n";
-    for (const Student & student : temp) {
+    cout << "StudentCode | StudentName\n";
+    for (const Student & student : roll) {
         for (UCTurma t : student.getTurmas()) {
             if (t.getUC() == UC) {
-                cout << student.getCode() << ',' << student.getName() << '\n';
+                cout << student.getCode() << " | " << student.getName() << '\n';
                 n++;
                 break;
             }
@@ -338,13 +340,15 @@ int GestaoHor::showStudentsByUC(string UC) const{
 }
 
 void GestaoHor::alphabeticOrder() {
-    sort(temp.begin(),temp.end(),[](Student const &a, Student const &b){
+    roll = vector<Student>(estudantes.begin(),estudantes.end());
+    sort(roll.begin(),roll.end(),[](Student const &a, Student const &b){
         return a.getName() < b.getName();
     });
 }
 
 void GestaoHor::numericOrder() {
-    sort(temp.begin(),temp.end());
+    roll = vector<Student>(estudantes.begin(),estudantes.end());
+    sort(roll.begin(),roll.end());
 }
 
 int GestaoHor::studentsSize() const{

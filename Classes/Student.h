@@ -32,7 +32,7 @@ public:
     void removeTurma(const UCTurma& turma); /*!< Removes a class from the list of classes the student is in.
  * \n Complexity: O(n), being n the size of the \b turmas vector. */
     void loadSchedule(GestaoHor& g) const; /*!< Loads the student's schedule into a given GestaoHor object.\n
- * Complexity: O(n^2), being n the maximum between the number of classes (size of vector \b turmas) and the number of slots of each class. */
+ * Complexity: O(n²), being n the maximum between the number of classes (size of vector \b turmas) and the number of slots of each class. */
     vector<UCTurma> getTurmas() const; /*!< Returns a copy of the \b turmas vector.\n Complexity: O(n), since it has
  * to traverse all the vector's elements. */
 private:
