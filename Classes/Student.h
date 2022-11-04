@@ -29,7 +29,8 @@ public:
  * \n Complexity: O(n), with \a n being the size of the private member \a turmas (the number of classes the student is in). */
     Student& operator=(const Student& student); /*!< Overload of operator = (assignment/copy). Returns a new Student with the
  * same attributes, not a reference.\n Complexity: O(n), since it has to traverse all elements in the \b turmas vector, being n its size. */
-    void removeTurma(const UCTurma& turma); /*!< Removes a class from the list of classes the student is in.
+    bool removeTurma(const UCTurma& turma); /*!< Tries to remove a class from the list of classes the student is in.
+ * Returns \b false if the student is not enrolled in the class, \b true otherwise.
  * \n Complexity: O(n), being n the size of the \b turmas vector. */
     void loadSchedule(GestaoHor& g) const; /*!< Loads the student's schedule into a given GestaoHor object.\n
  * Complexity: O(n²), being n the maximum between the number of classes (size of vector \b turmas) and the number of slots of each class. */

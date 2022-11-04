@@ -3,21 +3,31 @@
 
 #include "Classes/GestaoHor.h"
 
-using namespace std;
-
 /**
  * @file
- * vfivhvhjkvyubvf
+ * main.cpp contains the code where the program starts running.\n
+ * Contains the UI menus and auxiliary functions that are not methods of any class.
  */
 
+using namespace std;
+
+
+/**
+ * Returns whether a string is a number (all of it's characters are digits) or not.\n
+ * Complexity: O(n), being \a n the length of the string.
+ */
 bool is_number(const string& s) {
     string::const_iterator it = s.begin();
     while (it != s.end() && isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
 
+/**
+ * Receives a GestaoHor object and, providing a part of the UI, verifies if the contents of the request are valid
+ * (if the UC and class codes are valid, for example) and calls GestaoHor::addPedido() to load the request.
+ */
 void makePedido(GestaoHor& gestaoHor) {
-    int option;
+    string option;
     cout << "O seu pedido sera colocado numa fila e processado no fecho do programa (opcao 0 do menu principal). "
             "Recebera informacao se o seu pedido nao for aceite.\n\n"
             "Selecionar opcao (premir ENTER):\n"
@@ -26,9 +36,13 @@ void makePedido(GestaoHor& gestaoHor) {
             "3 - Trocar estudante de turma numa dada UC\n"
             "0 - Menu anterior" << endl;
     cin >> option; cout << '\n';
+    if(option.length() != 1 || !isdigit(option[0])) {
+        cout << "Opcao invalida. Por favor, tente novamente." << endl;
+        return;
+    }
     string n;
     string uc, adding, removing;
-    switch (option) {
+    switch (stoi(option)) {
         case 1:
             cout << "Introduza o numero mecanografico" << endl; cin >> n; cout << '\n';
             if(n.length() != 9 || !is_number(n)) {
@@ -50,6 +64,7 @@ void makePedido(GestaoHor& gestaoHor) {
             gestaoHor.addPedido(Pedido(stoi(n), 1, make_pair(uc,adding)));
             break;
         case 2:
+            cout << "Introduza o numero mecanografico" << endl; cin >> n; cout << '\n';
             if(n.length() != 9 || !is_number(n)) {
                 cout << "Numero invalido. Por favor, tente novamente." << endl;
                 return;
@@ -80,14 +95,14 @@ void makePedido(GestaoHor& gestaoHor) {
                 cout << '\n';
                 return;
             }
-            cout << "Introduza o codigo da Turma a que deseja adicionar (no formato XLEICXX)" << endl; cin >> adding; cout << '\n';
-            if (adding.length() != 7 || adding.substr(1,4) != "LEIC") {
+            cout << "Introduza o codigo da Turma de que deseja remover (no formato XLEICXX)" << endl; cin >> removing; cout << '\n';
+            if (removing.length() != 7 || removing.substr(1,4) != "LEIC") {
                 cout << "Codigo invalido. Por favor, tente novamente." << endl;
                 cout << '\n';
                 return;
             }
-            cout << "Introduza o codigo da Turma de que deseja remover (no formato XLEICXX)" << endl; cin >> removing; cout << '\n';
-            if (removing.length() != 7 || removing.substr(1,4) != "LEIC") {
+            cout << "Introduza o codigo da Turma a que deseja adicionar (no formato XLEICXX)" << endl; cin >> adding; cout << '\n';
+            if (adding.length() != 7 || adding.substr(1,4) != "LEIC") {
                 cout << "Codigo invalido. Por favor, tente novamente." << endl;
                 cout << '\n';
                 return;
@@ -101,6 +116,13 @@ void makePedido(GestaoHor& gestaoHor) {
     }
 }
 
+/**
+ * Receives a GestaoHor object and a boolean (\b true if the user wants to make the changes definitive or process them
+ * but discard them, \b false if they want them to be written on a separate file).\n
+ * While requests are being processed, the function creates a vector with the indexes of the requests that were not
+ * accepted and, implementing part of the UI, informs the user about the requests that could not be accepted.\n
+ * Complexity: O(n²), being \a n the number of requests.
+ */
 void readPedidos(GestaoHor& gestaoHor, bool def) {
     if(gestaoHor.pedidosEmpty()) return;
     int counter = 0;
@@ -127,18 +149,23 @@ void readPedidos(GestaoHor& gestaoHor, bool def) {
     }
 }
 
+/**
+ * Receives a GestaoHor object and, implementing part of the UI, asks the user for a UC and a class and prints its
+ * occupation through GestaoHor::printOccupation(). Verifies if the provided UC and class codes are valid.\n
+ * Complexity: O(log n), being \a n the total number of classes (size of field \a aulas of the GestaoHor object).
+ */
 void ocupacao(GestaoHor& gestaoHor) {
     string codUC, codTurma;
     cout << "Introduza o codigo da UC (no formato L.EICXXX)" << endl;
     cin >> codUC; cout << '\n';
-    if (codUC.substr(0,5) != "L.EIC") {
+    if (codUC.length() != 8 ||codUC.substr(0,5) != "L.EIC") {
         cout << "Codigo invalido. Por favor, tente novamente." << endl;
         cout << '\n';
         return;
     }
     cout << "Introduza o codigo da turma (no formato XLEICXX)" << endl;
     cin >> codTurma; cout << '\n';
-    if (codTurma.substr(1,4) != "LEIC") {
+    if (codTurma.length() != 7 ||codTurma.substr(1,4) != "LEIC") {
         cout << "Codigo invalido. Por favor, tente novamente." << endl;
         cout << '\n';
         return;
@@ -147,21 +174,33 @@ void ocupacao(GestaoHor& gestaoHor) {
     cout << '\n';
 }
 
+/**
+ * Receives a GestaoHor object and, implementing part of the UI, provides various listings and prints them to the user.\n
+ * Verifies validity of user inputs.\n
+ * Complexity: O(n log(n)), being \a n the number of existing students (field estudantes of GestaoHor object).
+ */
 void listagens(GestaoHor & gestaoHor) {
-    int order;
+    string order;
     cout << "Listagem de estudantes com ordem e filtro\n"
             "Selecionar opcao (remir ENTER):\n"
             "1 - Ordenar por numero de estudante\n"
             "2 - Ordenar alfabeticamente\n"
             "0 - Menu anterior" << endl;
     cin >> order; cout << '\n';
-    if (!order) return;
-    if((order-1)) {
+    if(order.length() != 1 || !isdigit(order[0])) {
+        cout << "Opcao invalida. Por favor, tente novamente." << endl;
+        return;
+    }
+    if (!stoi(order)) return;
+    if((stoi(order) == 2)) {
         gestaoHor.alphabeticOrder();
-    } else {
+    } else if (stoi(order) == 1){
         gestaoHor.numericOrder();
     }
-    int option;
+    else {
+        cout << "Opcao invalida. Por favor, tente novamente." << endl; cout << '\n';
+    }
+    string option;
     cout << "Selecionar opcao (premir ENTER):\n"
             "1 - Todos os estudantes\n"
             "2 - Estudantes por ano\n"
@@ -169,11 +208,15 @@ void listagens(GestaoHor & gestaoHor) {
             "4 - Estudantes por turma de UC\n"
             "0 - Menu anterior" << endl;
     cin >> option; cout << '\n';
+    if(option.length() != 1 || !isdigit(option[0])) {
+        cout << "Opcao invalida. Por favor, tente novamente." << endl;
+        return;
+    }
     int n;
     string year;
     string uc;
     string classCode;
-    switch (option) {
+    switch (stoi(option)) {
         case 1:
             gestaoHor.printStudents(); cout << '\n';
             cout << "Existem " << gestaoHor.studentsSize() << " estudantes no total." << endl;
@@ -225,6 +268,11 @@ void listagens(GestaoHor & gestaoHor) {
     }
 }
 
+/**
+ * Where the program starts executing. Implements the main menu of the UI, calls GestaoHor::GestaoHor(),
+ * GestaoHor::readStudents() and GestaoHor::readUCTurma(), which load all the data into the program.\n
+ * Manages the creation of file changes.csv, which has the purpose of saving changes (if the user wnats to).
+ */
 int main() {
     ofstream fout;
     fout.open("../changes.csv", ofstream::out | ofstream::trunc);
@@ -241,10 +289,14 @@ int main() {
                 "3 - Consultar ocupacao de uma dada turma de uma dada UC\n"
                 "4 - Mostrar listagens\n"
                 "0 - Sair e processar pedidos" << endl;
-        int option;
+        string option;
         cin >> option; cout << '\n';
+        if(option.length() != 1 || !isdigit(option[0])) {
+            cout << "Opcao invalida. Por favor, tente novamente." << endl;
+            continue;
+        }
         string n;
-        switch (option) {
+        switch (stoi(option)) {
             case 0:
                 exiting = true;
                 int def; cout << "Selecionar opcao (premir ENTER):\n"
@@ -282,7 +334,7 @@ int main() {
             case 4:
                 listagens(gestaoHor); break;
             default:
-                cout << "Opcao invalida. Por favor, tente novamente." << endl;
+                cout << "Numero invalido. Por favor, tente novamente." << endl;
         }
     }
     cout << "Adeus!" << endl;

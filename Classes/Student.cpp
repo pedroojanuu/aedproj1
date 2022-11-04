@@ -39,13 +39,15 @@ Student& Student::operator=(const Student& student) {
     return *this;
 }
 
-void Student::removeTurma(const UCTurma &turma) {
+bool Student::removeTurma(const UCTurma &turma) {
     vector<UCTurma>::iterator itr;
     for (itr = turmas.begin(); itr != turmas.end(); itr++)
         if (itr->getTurma() == turma.getTurma() && itr->getUC() == turma.getUC()) {
             break;
         }
+    if (itr == turmas.end()) return false;
     turmas.erase(itr);
+    return true;
 }
 
 void Student::loadSchedule(GestaoHor& g) const {

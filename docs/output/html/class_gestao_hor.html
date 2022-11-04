@@ -139,7 +139,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a1a7aa8d6e4d54a913945a5ebd5577de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A class for managing students' schedules, containing all students, classes and their schedules. </p>
+<div class="textblock"><p >A class for managing students' schedules, containing all students, classes and their schedules.<br  />
+It is the "center" of operations of the program. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12fd264b4d8b074eb4e4c0971504840a" name="a12fd264b4d8b074eb4e4c0971504840a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12fd264b4d8b074eb4e4c0971504840a">&#9670;&#160;</a></span>GestaoHor()</h2>
@@ -469,7 +470,7 @@ Complexity: O(n), being <em>n</em> the number of classes the student is enrolled
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Searches for the student with code <em>n</em> and removes the desired class from their <em>turmas</em> field, calling <a class="el" href="class_student.html#af9acddfbef5ee2deab3e1726ddcd4613">Student::removeTurma()</a>, and decrements the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#a32ea47b07c769e3e08eca40fb482d4a6">UCTurma::decrementSize()</a>.<br  />
+<p >Searches for the student with code <em>n</em> and removes the desired class from their <em>turmas</em> field, calling <a class="el" href="class_student.html#a9a9af6b36b8df69e628c954a70a97ef9">Student::removeTurma()</a>, and decrements the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#a32ea47b07c769e3e08eca40fb482d4a6">UCTurma::decrementSize()</a>.<br  />
  Returns <b>false</b> if the provided student code does not belong to any student, the same for the class, <b>true</b> otherwise.<br  />
  Complexity: O(n), being <em>n</em> the number of classes the student is enrolled in. </p>
 
@@ -585,7 +586,7 @@ Complexity: O(1). </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Searches for the student with code <em>n</em> and removes the desired class from their <em>turmas</em> field, calling <a class="el" href="class_student.html#af9acddfbef5ee2deab3e1726ddcd4613">Student::removeTurma()</a>, and decrements the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#a32ea47b07c769e3e08eca40fb482d4a6">UCTurma::decrementSize()</a>. Tries to add the desired class to their <em>turmas</em> field, calling <a class="el" href="class_student.html#a7bbf225db76f18b53ec5807e234fcf56">Student::addTurma()</a>, and increments the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#af7fd778c20de58d08008b059f2b5e270">UCTurma::incrementSize()</a>.<br  />
+<p >Searches for the student with code <em>n</em> and removes the desired class from their <em>turmas</em> field, calling <a class="el" href="class_student.html#a9a9af6b36b8df69e628c954a70a97ef9">Student::removeTurma()</a>, and decrements the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#a32ea47b07c769e3e08eca40fb482d4a6">UCTurma::decrementSize()</a>. Tries to add the desired class to their <em>turmas</em> field, calling <a class="el" href="class_student.html#a7bbf225db76f18b53ec5807e234fcf56">Student::addTurma()</a>, and increments the size (occupation) of the class, calling <a class="el" href="class_u_c_turma.html#af7fd778c20de58d08008b059f2b5e270">UCTurma::incrementSize()</a>.<br  />
  Returns <b>false</b> if the provided student code does not belong to any student, the same for the classes, if the change unbalances the classes' occupation in the desired UC or if the student's schedule is not compatible with the change, <b>true</b> otherwise. <br  />
  Complexity: O(n²), being <em>n</em> the number of classes the student is enrolled in. </p>
 

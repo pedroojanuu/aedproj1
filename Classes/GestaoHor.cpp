@@ -112,7 +112,7 @@ bool GestaoHor::removeTurmaStudent(int n, const UCTurma &turma) {
     aulas.erase(posTurma);
     aulas.insert(sub);
     Student tmp = *posStudent;
-    tmp.removeTurma(turma);
+    if(!tmp.removeTurma(turma)) return false;
     estudantes.erase(posStudent);
     estudantes.insert(tmp);
     return true;
@@ -172,7 +172,7 @@ bool GestaoHor::swapTurmaStudent(int n, const UCTurma &removing, const UCTurma &
         return false;
     }
     Student tmp = *posStudent;
-    tmp.removeTurma(removing);
+    if(!tmp.removeTurma(removing)) return false;
     tmp.addTurma(adding);
     tmp.loadSchedule(*this);
     if(!isScheduleValid()) return false;
@@ -230,7 +230,7 @@ bool GestaoHor::isScheduleValid() const {
             if (horario[i].first.getDay() != horario[j].first.getDay()) continue;
             if (horario[i].first.getType() == "T" || horario[j].first.getType() == "T") continue;
             if (horario[i].first.getHour() == horario[j].first.getHour()) return false;
-            if (horario[i].first.getHour() < horario[j].first.getHour() < horario[i].first.getHour()+horario[i].first.getDuration()) return false;
+            if (horario[i].first.getHour() < horario[j].first.getHour() && horario[j].first.getHour() < horario[i].first.getHour()+horario[i].first.getDuration()) return false;
         }
     }
     return true;

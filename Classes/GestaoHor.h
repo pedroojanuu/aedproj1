@@ -8,7 +8,9 @@
 * and the Faculty of Sciences of the University of Porto.
 * It was made by the students João das Neves Fernandes (202108867)
 * (up202108867@edu.fe.up.pt) and
-* Pedro Simão Januário Vieira (202108768) (up202108768@edu.fe.up.pt), both belonging to Group No. 10, from class 2LEIC01.
+* Pedro Simão Januário Vieira (202108768) (up202108768@edu.fe.up.pt), both belonging to Group No. 10, from class 2LEIC01.\n \n
+ * It supports showing the schedule of students, various listings and processing requests of changes to the
+ * schedules.
 */
 
 #include "Student.h"
@@ -24,7 +26,8 @@ class Pedido;
 
 /**
  * @class GestaoHor class implements A class for managing students' schedules,
- * containing all students, classes and their schedules.
+ * containing all students, classes and their schedules.\n
+ * It is the "center" of operations of the program.
  */
 
 class GestaoHor {

@@ -94,8 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abdbb14cd83ef23c09f811bd1e30ddd4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af308435c8249b31b4aab5cda3593c395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_student.html">Student</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#af308435c8249b31b4aab5cda3593c395">operator=</a> (const <a class="el" href="class_student.html">Student</a> &amp;student)</td></tr>
 <tr class="separator:af308435c8249b31b4aab5cda3593c395"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9acddfbef5ee2deab3e1726ddcd4613"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#af9acddfbef5ee2deab3e1726ddcd4613">removeTurma</a> (const <a class="el" href="class_u_c_turma.html">UCTurma</a> &amp;turma)</td></tr>
-<tr class="separator:af9acddfbef5ee2deab3e1726ddcd4613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9af6b36b8df69e628c954a70a97ef9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a9a9af6b36b8df69e628c954a70a97ef9">removeTurma</a> (const <a class="el" href="class_u_c_turma.html">UCTurma</a> &amp;turma)</td></tr>
+<tr class="separator:a9a9af6b36b8df69e628c954a70a97ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a0df649bf6426f59c9b687005b9c14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a70a0df649bf6426f59c9b687005b9c14">loadSchedule</a> (<a class="el" href="class_gestao_hor.html">GestaoHor</a> &amp;g) const</td></tr>
 <tr class="separator:a70a0df649bf6426f59c9b687005b9c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a772f729a87d4ed1257dd3ad0727f0372"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_u_c_turma.html">UCTurma</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a772f729a87d4ed1257dd3ad0727f0372">getTurmas</a> () const</td></tr>
@@ -299,14 +299,14 @@ Complexity: O(n²), being n the maximum between the number of classes (size of v
 
 </div>
 </div>
-<a id="af9acddfbef5ee2deab3e1726ddcd4613" name="af9acddfbef5ee2deab3e1726ddcd4613"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9acddfbef5ee2deab3e1726ddcd4613">&#9670;&#160;</a></span>removeTurma()</h2>
+<a id="a9a9af6b36b8df69e628c954a70a97ef9" name="a9a9af6b36b8df69e628c954a70a97ef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9af6b36b8df69e628c954a70a97ef9">&#9670;&#160;</a></span>removeTurma()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Student::removeTurma </td>
+          <td class="memname">bool Student::removeTurma </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_u_c_turma.html">UCTurma</a> &amp;&#160;</td>
           <td class="paramname"><em>turma</em></td><td>)</td>
@@ -314,7 +314,7 @@ Complexity: O(n²), being n the maximum between the number of classes (size of v
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Removes a class from the list of classes the student is in. <br  />
+<p >Tries to remove a class from the list of classes the student is in. Returns <b>false</b> if the student is not enrolled in the class, <b>true</b> otherwise. <br  />
  Complexity: O(n), being n the size of the <b>turmas</b> vector. </p>
 
 </div>

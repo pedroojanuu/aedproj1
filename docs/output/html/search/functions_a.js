@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['showstudentsbyclass_0',['showStudentsByClass',['../class_gestao_hor.html#a8168a202297326ff87d6d661042416b9',1,'GestaoHor']]],
-  ['showstudentsbyuc_1',['showStudentsByUC',['../class_gestao_hor.html#aedd332e38d38ad6842a0c1c862131a37',1,'GestaoHor']]],
-  ['showstudentsbyyear_2',['showStudentsByYear',['../class_gestao_hor.html#a5450ffe4c0c676095e2ec814f2a31a75',1,'GestaoHor']]],
-  ['slot_3',['Slot',['../class_slot.html#adc549559ed993bc584d52b6ff2b64a12',1,'Slot']]],
-  ['student_4',['Student',['../class_student.html#a3fe996ba0abce52dd705bb19bb6f6824',1,'Student']]],
-  ['studentssize_5',['studentsSize',['../class_gestao_hor.html#a9d75308ee37a2dd45bba542f2755fedc',1,'GestaoHor']]],
-  ['swapturmastudent_6',['swapTurmaStudent',['../class_gestao_hor.html#af3d11107bc5cbf8527e16be3dadd4820',1,'GestaoHor']]]
+  ['readpedidos_0',['readPedidos',['../main_8cpp.html#abe831c408f74e86d2cc58ce109de63e3',1,'main.cpp']]],
+  ['readstudents_1',['readStudents',['../class_gestao_hor.html#a838da8e987d9ae1f972c1f86d9a243bb',1,'GestaoHor']]],
+  ['readucturma_2',['readUCTurma',['../class_gestao_hor.html#ada445b2290d73ed71e918b09e537172d',1,'GestaoHor']]],
+  ['removeturma_3',['removeTurma',['../class_student.html#a9a9af6b36b8df69e628c954a70a97ef9',1,'Student']]],
+  ['removeturmastudent_4',['removeTurmaStudent',['../class_gestao_hor.html#a293484f38d33e2bdf85ea5e9de5b691f',1,'GestaoHor']]]
 ];
