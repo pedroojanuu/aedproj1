@@ -17,7 +17,6 @@ void GestaoHor::printStudents() const {
     }
 }
 
-//leitura de classes.csv/classes_per_uc.csv
 void GestaoHor::readUCTurma() {
     ifstream in("classes.csv");
     vector<UCTurma> aux;
@@ -62,7 +61,6 @@ void GestaoHor::readUCTurma() {
     aulas = set<UCTurma>(aux.begin(), aux.end());
 }
 
-// leitura de students_classes.csv
 void GestaoHor::readStudents() {
     ifstream in("students_classes.csv");
     string line;
@@ -236,8 +234,6 @@ bool GestaoHor::isScheduleValid() const {
     return true;
 }
 
-
-
 bool GestaoHor::processPedido(bool def) {
     Pedido pedido = pedidos.front();
     pedidos.pop();
@@ -310,7 +306,6 @@ int GestaoHor::showStudentsByYear(char year) const{
     }
     return n;
 }
-
 
 int GestaoHor::showStudentsByClass(const UCTurma & turma) const{
     int n = 0;

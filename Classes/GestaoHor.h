@@ -37,8 +37,6 @@ public:
     void alphabeticOrder();
     void numericOrder();
     int studentsSize() const;
-
-
 private:
     set<Student> estudantes;
     set<UCTurma> aulas;

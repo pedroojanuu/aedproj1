@@ -30,9 +30,6 @@ void Student::print() const {
 }
 
 Student& Student::operator=(const Student& student) {
-
-
-
     name_ = student.name_;
     code_ = student.code_;
     turmas.clear();
@@ -60,4 +57,3 @@ void Student::loadSchedule(GestaoHor& g) const {
 vector<UCTurma> Student::getTurmas() const {
     return turmas;
 }
-
